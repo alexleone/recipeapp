@@ -1,0 +1,190 @@
+2013-09-29 17:21:06 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:07 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:08 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:09 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:05 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:05 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:05 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:05 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:21:06 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:28:11 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:28:11 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:28:11 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:28:11 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:28:11 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:30:59 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:30:59 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:30:59 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:30:59 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-09-29 17:31:00 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for 'EDT/-4.0/DST' instead
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2013-09-29 17:1...')
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1380489186)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1380489186)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
