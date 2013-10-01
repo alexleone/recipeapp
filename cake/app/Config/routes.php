@@ -32,6 +32,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+	Router::connect('/recipe/*', array('controller' => 'recipe', 'action' => 'index'));
 	
 	Router::connect('/recipes/', array('controller' => 'recipes', 'action' => 'index'));
 
