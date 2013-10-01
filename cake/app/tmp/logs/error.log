@@ -188,3 +188,21 @@ Stack Trace:
 #5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
 #6 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #7 {main}
+2013-10-01 23:31:28 Error: [MissingControllerException] Controller class RecipeController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipeController',
+  'plugin' => NULL,
+)
+Request URL: /recipeapp/cake/recipe/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-01 23:32:52 Error: [MissingControllerException] Controller class RecipeController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipeController',
+  'plugin' => NULL,
+)
+Request URL: /recipeapp/cake/recipe/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
