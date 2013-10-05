@@ -9,3 +9,24 @@
 	{ "recipeName":"Cherry Tomato Couscous" , "id":"Cherry-tomato-couscous-308828", "rating":"5" }
 	]
 }
+
+<?php
+$con=mysqli_connect("example.com","peter","abc123","my_db");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+foreach
+mysqli_query($con,"INSERT INTO Persons (FirstName, LastName, Age)
+VALUES ('Peter', 'Griffin',35)");
+
+mysqli_query($con,"INSERT INTO Persons (FirstName, LastName, Age) 
+VALUES ('Glenn', 'Quagmire',33)");
+
+mysqli_close($con);
+?>
+
+
+INSERT INTO `recipeapp`.`recipes` (`id`, `name`, `rating`) VALUES ('Veggie-Fried-Rice-Naturally-Ella-46312', 'Veggie Fried Rice', '5');
+INSERT INTO `recipeapp`.`recipes` (`id`, `name`, `rating`) VALUES ('Ranch-Noodles-My-Recipes', 'Ranch Noodles', '4');
