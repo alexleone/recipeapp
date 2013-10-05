@@ -4,6 +4,7 @@ App::uses('Model', 'AppModel');
 
 
 class Recipe extends AppModel {
+ 	
  	public $name = 'Recipes';
 	
 	

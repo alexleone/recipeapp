@@ -1,9 +1,9 @@
 <?php
 
-App::uses('Ingredients', 'AppModel');
+App::uses('Admin', 'AppModel');
 
 
-class IndgredientModel extends AppModel {
+class AdminModel extends AppModel {
 
 
 	public function getItem($item){
