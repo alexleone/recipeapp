@@ -12,7 +12,13 @@ class InController extends AppController {
 	 public function index($item) {
 		//$this->set('in', $item);
 	 	$this->set('in',  $this->In->getItem($item));
-
+		
+	}
+	
+	public function save($itemInfo){
+		$data = array('item_id' => $itemInfo[0], 'item_name' => $itemInfo[1], 'item_description' => $itemInfo[2],
+					'item_category' => $itemInfo[3], 'item_image' => $itemInfo[4], 'pricing' => $itemInfo[5]);
+		$this->In->save($data);		
     }
 
 //  public function add() {
