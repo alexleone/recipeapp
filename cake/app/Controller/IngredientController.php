@@ -9,20 +9,9 @@ class IngredientController extends AppController {
 	
 	
 	 public function index() {
-        $this->set('recipes', $this->Ingredient->find('all'));
+        $this->set('recipes', $this->Ingredient->);
     }
 
-    public function view($id) {
-        if (!$id) {
-            throw new NotFoundException(__('Invalid post'));
-        }
-
-        $recipe = $this->Recipe->getRecipeById($id);
-        if (!$recipe) {
-            throw new NotFoundException(__('Invalid post'));
-        }
-        $this->set('recipes', $recipe);
-    }
 
 //     public function add() {
 //         if ($this->request->is('post')) {
