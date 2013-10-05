@@ -35,6 +35,8 @@
 	Router::connect('/recipe/*', array('controller' => 'recipe', 'action' => 'index'));
 	
 	Router::connect('/recipes/', array('controller' => 'recipes', 'action' => 'index'));
+	
+	Router::connect('/in/*', array('controller' => 'in', 'action' => 'index'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
