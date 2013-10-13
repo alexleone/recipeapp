@@ -6,48 +6,55 @@ App::uses('Recipe', 'Model');
 class Recipe extends AppModel {
  	
  	public $name = 'Recipe';
-	
-	
-	public function getById($reicpe_id){
 
+	public function getById($reicpe_id){
+			
 		// API credentials
 		//
 		// Alex credentials
-		$appid = "8b7fc356";
-		$appkey = "3d0f6c532b8db2f84758d901d7129167";
+		$appid = "5554e9c3";
+		$appkey = "76a93afd90d3637f940515fc91fc9e48";
+	
 		
 		// Jenni credentials
 		// $appid = "5554e9c3";
 		// $appkey = "76a93afd90d3637f940515fc91fc9e48";
-
+	
 		// Building string for GET request
 		//
 		$requeststr = "http://api.yummly.com/v1/api/recipe/";
-		$requeststr = $requeststr. $reicpe_id . "?";
+		$requeststr = $requeststr.$reicpe_id."?";
 		$requeststr = $requeststr."_app_id=".$appid;
 		$requeststr = $requeststr."&_app_key=".$appkey;
 
-		// CURL for communicating with web service
-		//
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,$requeststr);
-		curl_setopt($ch, CURLOPT_VERBOSE, 1);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-
-		$response = curl_exec($ch);
-
-		// We will do some heavy lifting on the server side
-		// parse JSON and send back already prepared html with
-		// only the elements we have to add to fields
-		//
-		$response_decoded = json_decode($response, true);
-		
-		return 	$response_decoded;
+		$output = Recipe::getDataFromYummly($requeststr);
+	
+		return $output;
 	}	
 	
 	
+	public function getDataFromYummly($requeststr){
+			// CURL for communicating with web service
+			//
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,$requeststr);
+			curl_setopt($ch, CURLOPT_VERBOSE, 1);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+
+			$response = curl_exec($ch);
+
+			// We will do some heavy lifting on the server side
+			// parse JSON and send back already prepared html with
+			// only the elements we have to add to fields
+			//
+			$response_decoded = json_decode($response, true);
+		
+			return 	$response_decoded;
+		}	
 	
+
+
 	
 }

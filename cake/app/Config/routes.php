@@ -48,6 +48,7 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
+	
 	CakePlugin::load('Users', array('routes' => true));
 
 /**
