@@ -2056,3 +2056,12 @@ Stack Trace:
 #3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-10-13 19:11:37 Error: [MissingControllerException] Controller class RecipeappController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipeappController',
+  'plugin' => NULL,
+)
+Request URL: /recipeapp/cake/recipeapp/cake/Recipe/index/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

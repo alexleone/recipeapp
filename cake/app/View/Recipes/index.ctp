@@ -24,22 +24,15 @@ print $recipe0["flavors"]["Bitter"];
 			$recipe = ${'recipe' . $i}
 	?>
 	
-	<!-- <a href="Recipe/index/?id=<?php echo $recipe["id"]; ?>"> -->
-	<?php echo $this->Html->link('Recipe', array('controller' => 'Recipe', 'action' => 'index', $recipe["id"]));?>
+	<a href="../cake/Recipe/index/<?php echo $recipe['id']; ?>">
+	<!-- <?php echo $this->Html->link(
+		'Recipe', array('controller' => 'Recipe', 'action' => 'index', $recipe["id"]));?> -->
+		
 	<div class='listingBox'>
 		<img class="thumb" src="<?php echo $recipe["images"]["0"]["hostedLargeUrl"]; ?>" alt="<?php echo $recipe["name"]; ?>" />
 		<h3><?php echo $recipe["name"]; ?> - <?php print $recipe["source"]["sourceDisplayName"]; ?></h3>
-		<!--
-		<h5>Servings: <?php echo $recipe["yield"]; ?></h5>
-		<h5>Ingredients:</h5>
-		<ul>
-			<?php  foreach($recipe["ingredientLines"] as $ingredient) {?>
-			<li><?php echo $ingredient; ?></li>
-			<?php } ?>
-		</ul>
-		-->
 	</div>
-	
+	</a>
 	<?php 	
 		} // end for loop 
 	?>
