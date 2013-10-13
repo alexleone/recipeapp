@@ -12,8 +12,13 @@ class Recipe extends AppModel {
 
 		// API credentials
 		//
+		// Alex credentials
 		$appid = "8b7fc356";
 		$appkey = "3d0f6c532b8db2f84758d901d7129167";
+		
+		// Jenni credentials
+		// $appid = "5554e9c3";
+		// $appkey = "76a93afd90d3637f940515fc91fc9e48";
 
 		// Building string for GET request
 		//

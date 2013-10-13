@@ -1,8 +1,6 @@
 <table border="1">
 <?php
-//print_r($in);
 $counter=0;
-print '';
 foreach($in['Product_Commercial'] as  $item){
 			print '<tr>';
 			echo $this->Form->create('Ins', array('action' => 'add', 'method' => 'POST'));
@@ -12,19 +10,20 @@ foreach($in['Product_Commercial'] as  $item){
 			$itemid  =array(  'value' => $item['ItemID']);
 			$imgeurl =array( 'value' =>$item['ItemImage']);
 			$price  =array( 'value' =>$item['Pricing']);
-			print $this->Form->input('item_name'.$counter, $name);
-			print $this->Form->input('item_description'.$counter,$description );
-			print $this->Form->input('item_category'.$counter,$category);
-			print $this->Form->input('item_id'.$counter,$itemid);
-			print $this->Form->input('item_image'.$counter,$imgeurl);
-			print $this->Form->input('pricing'.$counter++,$price);
-			print  '<td>'.$item['Itemname'].'</td>';
-			print  '<td>'.$item['ItemDescription'].'</td>';
-			print  '<td>'.$item['ItemCategory'].'</td>';
-			print  '<td>'.$item['ItemID'].'</td>';
-			print  '<td>'.$item['ItemImage'].'<img src="'.$item['ItemImage'].'" />'.'</td>';
-			print  '<td>'.$item['Pricing'].'</td>';
-			echo $this->Form->end('Add Ingredient to DB');
+			$index  =array( 'value' =>$counter);
+
+		
+			print  '<td>'.$this->Form->input('item_name'.$counter, $name).'</td>';
+			print  '<td>'.$this->Form->input('item_description'.$counter,$description ).'</td>';
+			print  '<td>'.$this->Form->input('item_category'.$counter,$category).'</td>';
+			print  '<td>'.$this->Form->input('item_id'.$counter,$itemid).'</td>';
+			print  '<td>'.$this->Form->input('pricing'.$counter,$price).'<img src="'.$item['ItemImage'].'" />'.'</td>';
+			print  '<td>'.$this->Form->input('item_image'.$counter,$imgeurl).'<img src="'.$item['ItemImage'].'" />'.'</td>';
+			print  '<td>'.$this->Form->input('item_index'.$counter,$index).'</td>';
+			print  '<td>'.$this->Form->end('Add Ingredient to DB').'</td>';
+			$counter++;
+		
+			
 			print '</tr>';		
 		
 	}
