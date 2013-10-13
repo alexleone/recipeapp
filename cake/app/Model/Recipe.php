@@ -1,11 +1,11 @@
 <?php
 
-App::uses('AppModel', 'Model');
+App::uses('Recipe', 'Model');
 
 
 class Recipe extends AppModel {
  	
- 	public $name = 'Recipes';
+ 	public $name = 'Recipe';
 	
 	
 	public function getById($reicpe_id){

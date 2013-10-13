@@ -36,19 +36,15 @@
 	
 	Router::connect('/recipes/', array('controller' => 'recipes', 'action' => 'index'));
 	
-	Router::connect('/in/*', array('controller' => 'in', 'action' => 'index'));
+	Router::connect('/ins/*', array('controller' => 'ins', 'action' => 'index'));
 	
-	Router::connect('/login/*', array('controller' => 'users', 'action' => 'login'));
-	
-	Router::connect('/logout/*', array('controller' => 'users', 'action' => 'logout'));
-	
-	Router::connect('/signup/*', array('controller' => 'users', 'action' => 'signup'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
+	CakePlugin::load('Users', array('routes' => true));
 
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use

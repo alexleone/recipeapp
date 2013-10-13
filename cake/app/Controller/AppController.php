@@ -35,20 +35,13 @@ class AppController extends Controller {
 	
 	 public $components = array(
         'Session',
-        'DebugKit.Toolbar',
-        'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'view'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
-        )
+        'DebugKit.Toolbar'
     );
+    //      'Users.RememberMe'
     public $helpers = array('Html', 'Form', 'Session');
 
-//    public function beforeFilter() {
-        //Configure AuthComponent
- //       $this->Auth->allow('index', 'view');
-  //      $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-   //     $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-    //    $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'index');
-   // }
-
+	public function beforeFilter() {
+		parent::beforeFilter();
+		//$this->RememberMe->restoreLoginFromCookie();
+	}
 }
