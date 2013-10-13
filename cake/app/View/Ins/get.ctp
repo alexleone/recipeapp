@@ -12,7 +12,6 @@ foreach($in['Product_Commercial'] as  $item){
 			$price  =array( 'value' =>$item['Pricing']);
 			$index  =array( 'value' =>$counter);
 
-		
 			print  '<td>'.$this->Form->input('item_name'.$counter, $name).'</td>';
 			print  '<td>'.$this->Form->input('item_description'.$counter,$description ).'</td>';
 			print  '<td>'.$this->Form->input('item_category'.$counter,$category).'</td>';
