@@ -5,8 +5,9 @@ App::uses('RecipesController', 'AppController');
 class RecipesController extends AppController {
 	
 	//public $helpers = array('Html', 'Form');
-	public $name = 'Recipes';	
-	//public $components = array('Session');
+	public $name = 'Recipes';
+    public $uses = 'Recipe';
+    //public $components = array('Session');
 
 	public function index() {
 	

@@ -1,6 +1,8 @@
  
 hello
+<pre>
 <?php
+<<<<<<< HEAD
 	print_r($recipe);
 ?>
 
@@ -28,3 +30,9 @@ hello
 		} // end if
 	?>
 </div>
+=======
+print_r($recipe);
+$recipe['flavors']['Meaty'];
+?>
+</pre>
+>>>>>>> a012579e9cedf1152df68ab199de36d4f3e88c73

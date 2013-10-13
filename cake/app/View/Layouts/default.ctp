@@ -1,7 +1,4 @@
 <?php
-/**
- */
-
 $cakeDescription = __d('cake_dev', 'Easy As Cake, Whole Food\'s Recipe Order');
 ?>
 <!DOCTYPE html>
@@ -28,18 +25,14 @@ $cakeDescription = __d('cake_dev', 'Easy As Cake, Whole Food\'s Recipe Order');
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://localhost/recipeapp/cake/'); ?></h1>
 		</div>
 		<div id="content">
-
+			
 			<?php echo $this->Session->flash(); ?>
-
+			
 			<?php echo $this->fetch('content'); ?>
+		
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			<?php print 'Whole Foods' ?>
 		</div>
 	</div>
 	<?php //	echo $this->element('sql_dump'); ?>
