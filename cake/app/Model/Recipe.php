@@ -54,7 +54,33 @@ class Recipe extends AppModel {
 			return 	$response_decoded;
 		}	
 	
+	
+	public function getRecipesByIngList($ings){
+			
+		// API credentials
+		//
+		// Alex credentials
+		$appid = "5554e9c3";
+		$appkey = "76a93afd90d3637f940515fc91fc9e48";
+	
+		
+		// Jenni credentials
+		// $appid = "5554e9c3";
+		// $appkey = "76a93afd90d3637f940515fc91fc9e48";
+	
+		// Building string for GET request
+		//
+		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&';
+		$requeststr = $requeststr.'_app_id='.$appid;
+		$requeststr = $requeststr.'&_app_key='.$appkey;
+		$requeststr = $requeststr.'&q='.$ings;
 
+
+		$output = Recipe::getDataFromYummly($requeststr);
+	
+		return $output;
+	}	
+	
 
 	
 }
