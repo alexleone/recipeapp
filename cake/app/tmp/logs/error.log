@@ -1612,3 +1612,358 @@ Stack Trace:
 #1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
 #2 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-10-13 16:34:43 Error: Fatal Error (1): Call to a member function save() on a non-object in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 29]
+2013-10-13 16:34:43 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Library/WebSer...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 16:35:25 Error: Fatal Error (1): Call to a member function save() on a non-object in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 29]
+2013-10-13 16:35:25 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Library/WebSer...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 16:35:30 Error: Fatal Error (1): Call to a member function save() on a non-object in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 29]
+2013-10-13 16:35:30 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Library/WebSer...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 16:57:22 Error: Fatal Error (1): Call to a member function save() on a non-object in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 29]
+2013-10-13 16:57:22 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Library/WebSer...', 29)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Library/WebSer...', 29, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:02:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'item_id' cannot be null
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `re...', Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `re...')
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Model.php(1761): DboSource->create(Object(Ins), Array, Array)
+#4 /Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php(26): Model->save(Array)
+#5 [internal function]: InsController->add()
+#6 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(InsController), Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-10-13 17:17:34 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:17:34 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:17:34 Error: Fatal Error (256): [InvalidArgumentException] The eventKey variable is required
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(657): CakeEventManager->attach(NULL)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(925): Controller->getEventManager()
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(122): Controller->render()
+#3 [internal function]: ErrorHandler::handleException(Object(FatalErrorException))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(254): call_user_func('ErrorHandler::h...', Object(FatalErrorException))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#6 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#9 [internal function]: App::shutdown()
+#10 {main} in [/Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php, line 131]
+2013-10-13 17:17:34 Error: [FatalErrorException] [InvalidArgumentException] The eventKey variable is required
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(657): CakeEventManager->attach(NULL)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(925): Controller->getEventManager()
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(122): Controller->render()
+#3 [internal function]: ErrorHandler::handleException(Object(FatalErrorException))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(254): call_user_func('ErrorHandler::h...', Object(FatalErrorException))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#6 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#9 [internal function]: App::shutdown()
+#10 {main}
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(256, '[InvalidArgumen...', '/Library/WebSer...', 131)
+#1 [internal function]: ErrorHandler::handleError(256, '[InvalidArgumen...', '/Library/WebSer...', 131, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(131): trigger_error('[InvalidArgumen...', 256)
+#3 [internal function]: ErrorHandler::handleException(Object(FatalErrorException))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(254): call_user_func('ErrorHandler::h...', Object(FatalErrorException))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#6 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#9 [internal function]: App::shutdown()
+#10 {main}
+2013-10-13 17:17:37 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:17:37 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:17:38 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:17:38 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:17:42 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:17:42 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:17:43 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:17:43 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:17:54 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:17:54 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:17:54 Error: Fatal Error (256): [InvalidArgumentException] The eventKey variable is required
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(657): CakeEventManager->attach(NULL)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(925): Controller->getEventManager()
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(122): Controller->render()
+#3 [internal function]: ErrorHandler::handleException(Object(FatalErrorException))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(254): call_user_func('ErrorHandler::h...', Object(FatalErrorException))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#6 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#9 [internal function]: App::shutdown()
+#10 {main} in [/Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php, line 131]
+2013-10-13 17:17:54 Error: [FatalErrorException] [InvalidArgumentException] The eventKey variable is required
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(657): CakeEventManager->attach(NULL)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(925): Controller->getEventManager()
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(122): Controller->render()
+#3 [internal function]: ErrorHandler::handleException(Object(FatalErrorException))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(254): call_user_func('ErrorHandler::h...', Object(FatalErrorException))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#6 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#9 [internal function]: App::shutdown()
+#10 {main}
+Request URL: /recipeapp/cake/ins/get/apple
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(256, '[InvalidArgumen...', '/Library/WebSer...', 131)
+#1 [internal function]: ErrorHandler::handleError(256, '[InvalidArgumen...', '/Library/WebSer...', 131, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(131): trigger_error('[InvalidArgumen...', 256)
+#3 [internal function]: ErrorHandler::handleException(Object(FatalErrorException))
+#4 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(254): call_user_func('ErrorHandler::h...', Object(FatalErrorException))
+#5 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#6 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#9 [internal function]: App::shutdown()
+#10 {main}
+2013-10-13 17:18:13 Error: [MissingActionException] Action InsController::garlic() could not be found.
+Exception Attributes: array (
+  'controller' => 'InsController',
+  'action' => 'garlic',
+)
+Request URL: /recipeapp/cake/ins/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
+#2 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-10-13 17:18:30 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/View/Ins/get.ctp, line 23]
+2013-10-13 17:18:30 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 23)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 23, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 23, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:40:44 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:40:44 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:40:50 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:40:50 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:40:54 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:40:54 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:41:08 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:41:08 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:42:07 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:42:07 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:42:09 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:42:09 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:42:13 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:42:13 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:42:38 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 25]
+2013-10-13 17:42:38 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 25, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 25, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:43:58 Error: Fatal Error (4): parse error in [/Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php, line 26]
+2013-10-13 17:43:58 Error: [FatalErrorException] parse error
+Request URL: /recipeapp/cake/ins/get/garlic
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'parse error', '/Library/WebSer...', 26)
+#1 [internal function]: ErrorHandler::handleError(4, 'parse error', '/Library/WebSer...', 26, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'parse error', '/Library/WebSer...', 26, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 17:45:56 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `re...', Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `re...')
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Model.php(1761): DboSource->create(Object(Ins), Array, Array)
+#4 /Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php(28): Model->save(Array)
+#5 [internal function]: InsController->add()
+#6 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(InsController), Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-10-13 17:46:17 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `re...', Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `re...')
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Model.php(1761): DboSource->create(Object(Ins), Array, Array)
+#4 /Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php(28): Model->save(Array)
+#5 [internal function]: InsController->add()
+#6 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(InsController), Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-10-13 17:46:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'item_name' cannot be null
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `re...', Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `re...')
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Model.php(1761): DboSource->create(Object(Ins), Array, Array)
+#4 /Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php(28): Model->save(Array)
+#5 [internal function]: InsController->add()
+#6 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(InsController), Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-10-13 17:55:25 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /recipeapp/cake/ins/add
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `re...', Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `re...')
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Model/Model.php(1761): DboSource->create(Object(Ins), Array, Array)
+#4 /Library/WebServer/Documents/recipeapp/cake/app/Controller/InsController.php(29): Model->save(Array)
+#5 [internal function]: InsController->add()
+#6 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(InsController), Array)
+#7 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}

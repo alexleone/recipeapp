@@ -17,46 +17,19 @@ class InsController extends AppController {
 	 	//$this->set('in', $item);
 	 	$this->set('in', $this->Ins->getItem($item));
 	}
+
 	public function add() {
 		// Has any form data been POSTed?
 		$this->set('item', $this->request->data);
-		if ($this->request->is('post')) {
-			$this->Session->setFlash(__('POST'));
-			// If the form data can be validated and saved...
-			if ($this->Ins->save($this->request->data)) {
-				// Set a session flash message and redirect.
-				$this->Session->setFlash('Item Saved!');
-				return $this->redirect('/ins');
-			}
-		}
+		$itemInfo = $this->request->data;
+		$this->set('in', array_keys($itemInfo));
+		
+		$data = array('item_name' => $itemInfo['Ins']['item_name0'], 'item_description' => $itemInfo['Ins']['item_description0'],
+					'item_category' => $itemInfo['Ins']['item_category0'], 'item_image' => $itemInfo['Ins']['item_image0'], 'pricing' => $itemInfo['Ins']['pricing0']);
+ 		$this->Ins->save($data);		
 
 	 }
 
-	
-// 	public function add($itemInfo){
-// 
-//         $data = array('item_id' => $itemInfo[0], 'item_name' => $itemInfo[1], 'item_description' => $itemInfo[2],
-// 					'item_category' => $itemInfo[3], 'item_image' => $itemInfo[4], 'pricing' => $itemInfo[5]);
-// 		$this->In->save($data);		
-//     }
-
-// public function add() {
-//          if (!empty($this->$request->data)) { 
-//             	print "<script>alert('yhere')</script>";
-//             if (isset($this->data['EditArticleForm'])) { // Check if the Edit Form was submitted 
-//                 if ($this->EditArticleForm->save($this->data)) { 
-//                     $this->Session->setFlash(__('Your item has been saved.'));
-//             		return $this->redirect(array('action' => 'index'));
-//                 }
-//                 $this->Session->setFlash(__('Unable to add your post.'));
-//             }
-//         } else{
-//         	$this->Session->setFlash(__('The request from the view was empty.'));
-//         
-//         }  
-//      }
-
-	
 	
 	
 	
