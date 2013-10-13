@@ -12,6 +12,7 @@ class Recipe extends AppModel {
 		// API credentials
 		//
 		// Alex credentials
+<<<<<<< HEAD
 		$appid = "5554e9c3";
 		$appkey = "76a93afd90d3637f940515fc91fc9e48";
 	
@@ -20,6 +21,15 @@ class Recipe extends AppModel {
 		// $appid = "5554e9c3";
 		// $appkey = "76a93afd90d3637f940515fc91fc9e48";
 	
+=======
+		// $appid = "8b7fc356";
+		// $appkey = "3d0f6c532b8db2f84758d901d7129167";
+		
+		// Jenni credentials
+		$appid = "5554e9c3";
+		$appkey = "76a93afd90d3637f940515fc91fc9e48";
+
+>>>>>>> bdc366a117ffdf5deaf8b932fa7c44485c65554b
 		// Building string for GET request
 		//
 		$requeststr = "http://api.yummly.com/v1/api/recipe/";
