@@ -14,7 +14,8 @@ The plugin is pretty easy to set up, all you need to do is to copy it to you app
 
 	./Console/cake schema create users --plugin Users
 
-or
+or 
+
 
 	./Console/cake Migrations.migration run all --plugin Users
 
