@@ -22,6 +22,12 @@ class Recipe extends AppModel {
 	
 		// Building string for GET request
 		//
+		
+		// Drew credentials
+		// $appid = "7e0f4b62";
+		// $appkey = "c156d261799467d1898a71842822bdcf"
+		//
+		
 		$requeststr = "http://api.yummly.com/v1/api/recipe/";
 		$requeststr = $requeststr.$reicpe_id."?";
 		$requeststr = $requeststr."_app_id=".$appid;
