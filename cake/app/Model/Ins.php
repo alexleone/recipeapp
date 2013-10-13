@@ -3,7 +3,7 @@
 App::uses('Ins', 'Model');
 
 class Ins extends AppModel {
-	
+
 	public $name = 'Ins';
 	
 	public function getItem($item){
@@ -24,6 +24,7 @@ class Ins extends AppModel {
 		
 		return 	$array;
 
-	}	
-	
+	}
+
 }
+?>
