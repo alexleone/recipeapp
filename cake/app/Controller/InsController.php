@@ -8,10 +8,30 @@ class InsController extends AppController {
     public $uses = 'Ins';
 	public $components = array('Session');
 	
-	 public function index($item) {
+	 public function index() {
+	 	$this->set('in', 'HELLO From Controller, Inside of Inedx()');
+	 	//$this->set('in', $this->Ins->getItem($item));
+	}
+	
+	 public function get($item) {
 	 	//$this->set('in', $item);
 	 	$this->set('in', $this->Ins->getItem($item));
 	}
+	public function add() {
+		// Has any form data been POSTed?
+		$this->set('item', $this->request->data);
+		if ($this->request->is('post')) {
+			$this->Session->setFlash(__('POST'));
+			// If the form data can be validated and saved...
+			if ($this->Ins->save($this->request->data)) {
+				// Set a session flash message and redirect.
+				$this->Session->setFlash('Item Saved!');
+				return $this->redirect('/ins');
+			}
+		}
+
+	 }
+
 	
 // 	public function add($itemInfo){
 // 
@@ -36,21 +56,6 @@ class InsController extends AppController {
 //         }  
 //      }
 
-public function add() {
-    // Has any form data been POSTed?
-    if ($this->request->is('post')) {
-        // If the form data can be validated and saved...
-        if ($this->Ins->save($this->request->data)) {
-            // Set a session flash message and redirect.
-            $this->Session->setFlash('Item Saved!');
-            return $this->redirect('/ins');
-        }
-    }
-
-    // If no form data, find the recipe to be edited
-    // and hand it to the view.
-    //$this->set('ins', $this->Recipe->findById($id));
-}
 	
 	
 	
