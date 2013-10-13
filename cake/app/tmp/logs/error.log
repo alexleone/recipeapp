@@ -1967,3 +1967,92 @@ Stack Trace:
 #8 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(InsController), Object(CakeRequest), Object(CakeResponse))
 #9 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2013-10-13 18:24:43 Error: [MissingControllerException] Controller class ViewController could not be found.
+Exception Attributes: array (
+  'class' => 'ViewController',
+  'plugin' => NULL,
+)
+Request URL: /recipeapp/cake/view/RecipeVeggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-13 18:25:00 Error: [MissingControllerException] Controller class ViewController could not be found.
+Exception Attributes: array (
+  'class' => 'ViewController',
+  'plugin' => NULL,
+)
+Request URL: /recipeapp/cake/view/Recipe/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-13 18:25:42 Error: [MissingActionException] Action RecipeController::Veggie-Fried-Rice-Naturally-Ella-46312() could not be found.
+Exception Attributes: array (
+  'controller' => 'RecipeController',
+  'action' => 'Veggie-Fried-Rice-Naturally-Ella-46312',
+)
+Request URL: /recipeapp/cake/Recipe/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(RecipeController), Object(CakeRequest), Object(CakeResponse))
+#2 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-10-13 18:29:14 Error: Fatal Error (4): syntax error, unexpected '<<' (T_SL) in [/Library/WebServer/Documents/recipeapp/cake/app/View/Recipe/index.ctp, line 5]
+2013-10-13 18:29:14 Error: [FatalErrorException] syntax error, unexpected '<<' (T_SL)
+Request URL: /recipeapp/cake/Recipe/?id=Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Library/WebSer...', 5)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 18:47:20 Error: [MissingActionException] Action RecipeController::index.ctp() could not be found.
+Exception Attributes: array (
+  'controller' => 'RecipeController',
+  'action' => 'index.ctp',
+)
+Request URL: /recipeapp/cake/Recipe/index.ctp?id=Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(RecipeController), Object(CakeRequest), Object(CakeResponse))
+#2 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-10-13 18:47:35 Error: Fatal Error (4): syntax error, unexpected '<<' (T_SL) in [/Library/WebServer/Documents/recipeapp/cake/app/View/Recipe/index.ctp, line 5]
+2013-10-13 18:47:35 Error: [FatalErrorException] syntax error, unexpected '<<' (T_SL)
+Request URL: /recipeapp/cake/Recipe/index?id=Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Library/WebSer...', 5)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 18:48:16 Error: Fatal Error (4): syntax error, unexpected '<<' (T_SL) in [/Library/WebServer/Documents/recipeapp/cake/app/View/Recipe/index.ctp, line 5]
+2013-10-13 18:48:16 Error: [FatalErrorException] syntax error, unexpected '<<' (T_SL)
+Request URL: /recipeapp/cake/Recipe/index/?id=Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Library/WebSer...', 5)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-13 18:53:26 Error: [MissingControllerException] Controller class RecipeControllerController could not be found.
+Exception Attributes: array (
+  'class' => 'RecipeControllerController',
+  'plugin' => NULL,
+)
+Request URL: /recipeapp/cake/RecipeController/index/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-13 18:53:44 Error: Fatal Error (4): syntax error, unexpected '<<' (T_SL) in [/Library/WebServer/Documents/recipeapp/cake/app/View/Recipe/index.ctp, line 5]
+2013-10-13 18:53:44 Error: [FatalErrorException] syntax error, unexpected '<<' (T_SL)
+Request URL: /recipeapp/cake/Recipe/index/Veggie-Fried-Rice-Naturally-Ella-46312
+Stack Trace:
+#0 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Library/WebSer...', 5)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#2 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Library/WebSer...', 5, Array)
+#3 /Library/WebServer/Documents/recipeapp/cake/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
