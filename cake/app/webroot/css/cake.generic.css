@@ -740,3 +740,30 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+
+
+/* Recipe styles */
+.listingBox, .recipeBox{
+	position: relative;
+	padding: 10px 10px 5px;
+	margin: 0px;
+	margin-right: 8px;
+	float: left;
+	background: #FFF;
+	border: 1px solid #F0F0F0;
+	margin-bottom: 8px;
+}
+.listingBox{
+	width: 350px;
+	height: 325px;
+}
+li{
+	color: #454440;
+	font-size: 14px;
+	line-height: 19px;
+	text-align: justify;
+}
+.thumb{
+	width: 350px;
+}
