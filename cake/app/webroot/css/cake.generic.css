@@ -79,6 +79,12 @@ p {
 
 #header{
 	padding: 10px 20px;
+	/* fixed header */
+	position: fixed;
+	top: 0px;
+	z-index: 2000;
+	width: 100%;
+	background-color: #003d4c;
 }
 #header h1 {
 	line-height:20px;
@@ -103,6 +109,8 @@ p {
 	color: #333;
 	padding: 10px 20px 40px 20px;
 	overflow: auto;
+	/* for fixed header edits */
+	margin-top: 47px;
 }
 #footer {
 	clear: both;
@@ -599,6 +607,10 @@ pre {
 	line-height: 20px;
 	clear: both;
 }
+.cake-error:first-child {
+/* for fixed header div */
+	margin-top: 47px;
+}
 .cake-error > a {
 	text-shadow: none;
 }
@@ -766,4 +778,77 @@ li{
 }
 .thumb{
 	width: 350px;
+}
+.right{
+	text-align: right;
+}
+.bold{
+	font-weight: bold;
+}
+#nutritionFacts {
+	width: 350px;
+	border-collapse: collapse;
+	margin-top: 45px;
+	font-size: 0.9em;
+}
+.borderBottomThin {
+	border-bottom: 1px solid #000;
+}
+.borderBottomThick {
+	border-bottom: 5px solid #000;
+}
+.borderBottomXThick {
+	border-bottom: 10px solid #000;
+}
+ul#ingredientList, ul#ingredientList ul {
+	list-style-type: none;
+}
+ul#ingredientList li, ul#ingredientList li a {
+	padding: 10px 0px;
+}
+ul#ingredientList ul.hidingProducts, .hidingDescription {
+	display: none;
+}
+ul#ingredientList ul.showingProducts, .showingDescription {
+	display: block;
+}
+.showingDescription {
+	background: transparent url('../img/up-arrow.png') no-repeat left top;
+	width: 250px;
+	padding: 15px 0px;
+	position: relative;
+	margin-top: -4px;
+}
+.desWrap {
+	background-color: #fff;
+	width: 250px;
+	padding: 5px;
+	position: relative;
+	border: 2px solid #000;
+}
+ul#ingredientList ul.showingProducts li {
+	display: block;
+	float: left;
+ 	height: 100px;
+ 	width: 200px;
+ 	border: 1px solid #000;
+ 	padding: 5px;
+ 	margin-bottom: 10px;
+}
+ul#ingredientList ul.showingProducts img.productImg {
+	width: 90px;
+	height: 90px;
+	float: left;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+.left {
+	float: left;
+}
+.paddingSidesM {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+.clear {
+	clear: both;
 }
