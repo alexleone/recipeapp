@@ -13,7 +13,6 @@ class InsController extends AppController {
 	}
 	
 	 public function get($item) {
-	 	//$this->set('in', $item);
 	 	$this->set('in', $this->Ins->getItem($item));
 	}
 
@@ -48,15 +47,6 @@ class InsController extends AppController {
  			$this->set('dataPostedToDb', 'DB ERROR');
  		}
 
-
 	 }
-
-	public function addConfirm(){
-		
-		$this->Ins->getData($)
-		
-	}
-	
-	
 	
 }

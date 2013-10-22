@@ -1,5 +1,4 @@
-USE 'recipeuserdb';
-
+USE `recipeuserdb`;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -13,9 +12,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ;
 
-
-USE `recipeuserdb`;
-
 DROP TABLE IF EXISTS `recipes`;
 CREATE TABLE `recipes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -27,12 +23,7 @@ CREATE TABLE `recipes` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-USE `recipeapp`;
-
-
 DROP TABLE IF EXISTS `ins`;
-
 CREATE TABLE `ins` (
   `item_id` int(11) NOT NULL AUTO_INCREMENT,
   `item_name` varchar(150) NOT NULL,

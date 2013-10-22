@@ -61,12 +61,23 @@
  */
 class DATABASE_CONFIG {
 
+// 	public $default = array(
+// 		'datasource' => 'Database/Mysql',
+// 		'persistent' => false,
+// 		'host' => 'recipeuserdb.db.8206051.hostedresource.com',
+// 		'login' => 'recipeuserdb',
+// 		'password' => 'Capstone493!',
+// 		'database' => 'recipeuserdb',
+// 		'prefix' => '',
+// 		'encoding' => 'utf8',
+// 	);
+
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'recipeuserdb.db.8206051.hostedresource.com',
-		'login' => 'recipeuserdb',
-		'password' => 'Capstone493!',
+		'host' => '127.0.0.1',
+		'login' => 'root',
+		'password' => 'password',
 		'database' => 'recipeuserdb',
 		'prefix' => '',
 		'encoding' => 'utf8',
@@ -78,7 +89,7 @@ class DATABASE_CONFIG {
 		'host' => '127.0.0.1',
 		'login' => 'root',
 		'password' => 'password',
-		'database' => 'recipeapp',
+		'database' => 'recipeuserdb',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
