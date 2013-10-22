@@ -18,31 +18,31 @@ USE `recipeapp`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `ins`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `ins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  `role` varchar(20) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `ins` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(150) NOT NULL,
+  `item_description` text NOT NULL,
+  `item_category` varchar(75) NOT NULL,
+  `item_image` longblob NOT NULL,
+  `pricing` varchar(45) NOT NULL,
+  PRIMARY KEY (`item_id`),
+  UNIQUE KEY `item_id_UNIQUE` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `ins`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'studdamane','password','admin',NULL,NULL),(2,'alex','289b95a7b6590625b8cd5c1e2d9bf51238eef85f','admin','2013-10-05 23:55:56','2013-10-05 23:55:56'),(3,'alexlonebone','53cea7b8b03b6abe75b505a4c066815272239bf6','admin','2013-10-05 23:56:52','2013-10-05 23:56:52'),(4,'bigdick','a26be3cd3a57a4b09c550624cfb2b6445f738d34','admin','2013-10-06 00:25:00','2013-10-06 00:25:00'),(5,'bigdicks','a26be3cd3a57a4b09c550624cfb2b6445f738d34','admin','2013-10-06 00:25:56','2013-10-06 00:25:56'),(6,'bigdickss','a26be3cd3a57a4b09c550624cfb2b6445f738d34','admin','2013-10-06 00:26:21','2013-10-06 00:26:21'),(7,'drew','289b95a7b6590625b8cd5c1e2d9bf51238eef85f','admin','2013-10-06 00:31:57','2013-10-06 00:31:57');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `ins` WRITE;
+/*!40000 ALTER TABLE `ins` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ins` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-13 16:25:17
+-- Dump completed on 2013-10-22 11:43:16

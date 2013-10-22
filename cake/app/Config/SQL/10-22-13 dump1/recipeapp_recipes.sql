@@ -18,28 +18,30 @@ USE `recipeapp`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `preferences`
+-- Table structure for table `recipes`
 --
 
-DROP TABLE IF EXISTS `preferences`;
+DROP TABLE IF EXISTS `recipes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `preferences` (
-  `id` int(11) NOT NULL,
-  `question1` varchar(45) DEFAULT NULL,
-  `question2` varchar(45) DEFAULT NULL,
+CREATE TABLE `recipes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `recipe_name` varchar(75) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `totalTimeInSeconds` int(11) NOT NULL,
+  `yumId` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_id` FOREIGN KEY (`id`) REFERENCES `recipes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `preferences`
+-- Dumping data for table `recipes`
 --
 
-LOCK TABLES `preferences` WRITE;
-/*!40000 ALTER TABLE `preferences` DISABLE KEYS */;
-/*!40000 ALTER TABLE `preferences` ENABLE KEYS */;
+LOCK TABLES `recipes` WRITE;
+/*!40000 ALTER TABLE `recipes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `recipes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-13 16:25:17
+-- Dump completed on 2013-10-22 10:20:40
