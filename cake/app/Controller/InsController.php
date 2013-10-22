@@ -51,6 +51,11 @@ class InsController extends AppController {
 
 	 }
 
+	public function addConfirm(){
+		
+		$this->Ins->getData($)
+		
+	}
 	
 	
 	
