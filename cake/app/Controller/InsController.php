@@ -39,7 +39,7 @@ class InsController extends AppController {
 					'item_name' => $i['item_name'], 
 					'item_description' => $i['item_description'],
 					'item_category' => $i['item_category'], 
-					'item_image' => $i['item_image'], 
+					'item_image' => file_get_contents($i['item_image']),
 					'pricing' => $i['pricing']
 				);
  			}		
