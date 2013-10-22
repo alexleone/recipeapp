@@ -26,6 +26,7 @@ foreach($in['Product_Commercial'] as  $item){
 			print '</tr>';		
 		
 	}
+	print '<tr><td colspan="8">'.$this->Form->end('Add Ingredient to DB').'</td></tr>';
 ?>
 </table>	
 
