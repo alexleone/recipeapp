@@ -3,20 +3,32 @@
 <?php
 $counter=0;
 foreach($in['Product_Commercial'] as  $item){
-			print '<tr>';			
-			print  '<td>'.$this->Form->input($counter.'.item_name', array('value' => $item['Itemname'])).'</td>';
-			print  '<td>'.$this->Form->input($counter.'.item_description', array('type'=>'textarea','value' => $item['ItemDescription'])).'</td>';
-			print  '<td>'.$this->Form->input($counter.'.item_category', array('value' =>$item['ItemCategory'])).'</td>';
-			print  '<td>'.$this->Form->input($counter.'.item_id', array('type'=>'text','value'=>$item['ItemID'])).'</td>';
-			print  '<td>'.$this->Form->input($counter.'.pricing', array('type'=>'text','value'=>$item['Pricing'])).'</td>';
-			print  '<td>'.$this->Form->input($counter.'.item_image',array('value'=>$item['ItemImage'])).'<img src="'.$item['ItemImage'].'" />'.'</td>';
-			print  '<td>'.$this->Form->input($counter.'.item_index', array('value'=>$counter)).'</td>';
-			print '<td>'.$this->Form->checkbox($counter.'.item_checked').'</td>';
+	print '<div class="ins-get-outer">';
+	print '<div class="ins-get-box-thumb"><img src="'.$item['ItemImage'].'" /><span class="form-hidden">'.$this->Form->input($counter.'.item_image',array('value'=>$item['ItemImage'])).'</span></div>';
+	print '<div class="ins-get-box-text">';
+	print  $this->Form->input($counter.'.item_name', array('value' => $item['Itemname'], 'div' => 'ins-get-form-text')).'<br />';
+ 	print  $this->Form->input($counter.'.item_description', array('type'=>'textarea','value' => $item['ItemDescription'],  'div' => 'ins-get-form-text')).'<br />';
+ 	print  $this->Form->input($counter.'.item_category', array('value' =>$item['ItemCategory'], 'div' => 'ins-get-form-text')).'<br />';
+ 	print  $this->Form->input($counter.'.pricing', array('type'=>'text','value'=>$item['Pricing'],'div' => 'ins-get-form-text')).'<br />';
+ 	print '<span class="form-hidden">'.$this->Form->input($counter.'.item_index', array('value'=>$counter)).'</span>';
+ 	print '<br/></div>';
+ 	print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked').'</div></div>';
+ 	print '<hr class="ins-add-hr"/>';
+	
+	$counter++;		
 			
-			$counter++;
-			
-			print '</tr>';		
-		
+	// 	 	print '<tr>';			
+// 			print  '<td>'.$this->Form->input($counter.'.item_name', array('value' => $item['Itemname'])).'</td>';
+// 			print  '<td>'.$this->Form->input($counter.'.item_description', array('type'=>'textarea','value' => $item['ItemDescription'])).'</td>';
+// 			print  '<td>'.$this->Form->input($counter.'.item_category', array('value' =>$item['ItemCategory'])).'</td>';
+// 			print  '<td>'.$this->Form->input($counter.'.item_id', array('type'=>'text','value'=>$item['ItemID'])).'</td>';
+// 			print  '<td>'.$this->Form->input($counter.'.pricing', array('type'=>'text','value'=>$item['Pricing'])).'</td>';
+// 			print  '<td>'.$this->Form->input($counter.'.item_image',array('value'=>$item['ItemImage'])).'<img src="'.$item['ItemImage'].'" />'.'</td>';
+// 			print  '<td>'.$this->Form->input($counter.'.item_index', array('value'=>$counter)).'</td>';
+// 			print '<td>'.$this->Form->checkbox($counter.'.item_checked').'</td>';
+// 			$counter++;
+// 			print '</tr>';		
+// 		
 	}
 ?>
 </table>	

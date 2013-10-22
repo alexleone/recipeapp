@@ -852,3 +852,88 @@ ul#ingredientList ul.showingProducts img.productImg {
 .clear {
 	clear: both;
 }
+
+/* Start View/Ins/get.ctp */
+.ins-get-outer{
+	width:100%;
+	height:270px;
+}
+.ins-get-box-text{
+	display:inline-block;
+	width:70%;
+	height:auto;
+}
+.ins-get-box-thumb{
+	display:inline-block;
+	width:150px;
+	height:auto;
+	margin-top:80px;
+}
+.ins-get-checkbox{
+	width:20px;
+	height:18px;
+	height:auto;
+	display:inline-block;
+	margin-top:150px;
+	background-color:green;
+	border-radius: 5px;
+	
+}
+.form-hidden{
+	display:none;
+}
+.ins-get-form-text{
+	width:50em;
+	margin:0;
+	padding:0;
+}
+.ins-get-form-text input, .ins-get-form-text  select{
+    width:45em;
+    border:1px solid #ddd;
+     
+    font-family: Verdana;    
+    font-size:1em;
+    
+    margin:0;
+	padding:0;
+ 
+}
+.ins-get-form-text textarea, .ins-get-form-text select{
+    width:45em;
+    height:5em;
+    border:1px solid #ddd;
+     
+    font-family: Verdana;    
+    font-size:1em;
+    
+    margin:0;
+	padding:0;
+ 
+}
+
+ 
+/* End View/Ins/get.ctp */
+
+/* Start View/Ins/add.ctp */
+.ins-add-outer{
+	width:100%;
+	height:auto;
+}
+.ins-add-box-thumb{
+	display:inline-block;
+	width:150px;
+	height:auto;
+}
+.ins-add-box-text{
+	display:inline-block;
+	width:70%;
+	height:auto;
+}
+.in-add-bold{
+	font-weight:bold;
+}
+.ins-add-hr{
+	margin:20px 0 20px 0;
+	width:100%;
+}
+/* End View/Ins/add.ctp */

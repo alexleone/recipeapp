@@ -22,7 +22,7 @@ $cakeDescription = __d('cake_dev', 'Easy As Cake, Whole Food\'s Recipe Order');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://localhost/recipeapp/cake/'); ?></h1>
+			<h1><?php echo $this->Html->link($cakeDescription, '#'); ?></h1>
 		</div>
 		<div id="content">
 			
