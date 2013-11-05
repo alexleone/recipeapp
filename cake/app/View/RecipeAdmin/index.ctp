@@ -28,6 +28,7 @@ function getRecipesByCourse(course){
 	<form>
 	Cuisine:
 	<select onchange="var cusine = this.options[this.selectedIndex].value; getRecipesByCuisine(cusine)">
+		<option>choose one</option>
 		<option value="american">American</option>
 		<option value="italian">Italian</option>
 		<option value="asian">Asian</option>
@@ -56,6 +57,7 @@ function getRecipesByCourse(course){
 	</select>
 	Courses:
 	<select onchange="var course = this.options[this.selectedIndex].value; getRecipesByCourse(course)">
+		<option>choose one</option>
 		<option value="Main%2BDishes">Main Dishes</option>
 		<option value="Desserts">Desserts</option>
 		<option value="Side%2BDishes">Side Dishes</option>
