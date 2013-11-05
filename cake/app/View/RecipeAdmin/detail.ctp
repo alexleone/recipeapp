@@ -46,6 +46,22 @@
 	<h3><?php echo $recipe['name']; ?></h3>
 	<h5>Servings: <?php echo $recipe['numberOfServings']; ?></h5>
 	<h5>Total Time: <?php echo $recipe['totalTime']; ?></h5>
+
+		<?php if (array_key_exists('cuisine', $recipe['attributes'])) {
+			echo "<h5>Cuisine: ";
+			foreach($recipe['attributes']['cuisine'] as $cuisine) { 
+				echo $cuisine."<br />";
+			} 
+			echo "</h5>";
+		}
+		if (array_key_exists('course', $recipe['attributes'])) { 
+			echo "<h5>Course: ";
+			foreach($recipe['attributes']['course'] as $course) { 
+				echo $course."<br />";
+			}
+			echo "</h5>";
+		}?>
+	
 	<h5>Directions at: <a id="Logo" href="<?php echo $recipe['source']['sourceRecipeUrl']; ?>" target="_blank"> <?php echo $recipe['source']['sourceDisplayName']; ?></a></h5>
 	<h5 class="left">Ingredients:</h5>
 	<div class="left paddingSidesM">
@@ -65,7 +81,14 @@
 				<li>
 					<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="" alt="pic" class="productImg" />
 					Product name<br />
-					Price<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
+					Price<br />
+					<?php echo $this->Form->create(array('class' => 'productForm')); ?>
+					<?php echo $this->Form->input('Qty:', array(
+						'options' => array(2, 3, 4, 5, 6, 7, 8, 9, 10),
+    					'empty' => '1'
+    				)); ?>
+					<?php echo $this->Form->end('Add'); ?>
+					<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
 						<div class="desWrap">Description:  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
 					</div>
 				</li>
@@ -162,18 +185,18 @@
 		</tr>
 		<tr>
 			<td class="borderBottomThick"><span class="bold">Calories</span> <?php echo $calVal; ?></td>
-			<td class="right borderBottomThick">Calories from Fat <?php echo $calFatVal; ?></td>
+			<td class="right-text borderBottomThick">Calories from Fat <?php echo $calFatVal; ?></td>
 		</tr>
 		<tr>
-			<td colspan="2" class="right bold borderBottomThin">% Daily Value*</td>
+			<td colspan="2" class="right-text bold borderBottomThin">% Daily Value*</td>
 		</tr>
 		<tr>
 			<td><span class="bold">Total Fat</span> <?php echo $totFatVal; ?>g</td>
-			<td class="right bold"><?php echo number_format(($totFatVal/'65')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($totFatVal/'65')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Saturated Fat <?php echo $satFatVal; ?>g</td>
-			<td class="right bold"><?php echo number_format(($satFatVal/'20')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($satFatVal/'20')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Trans Fat <?php echo $transFatVal; ?>g</td>
@@ -181,23 +204,23 @@
 		</tr>
 		<tr>
 			<td><span class="bold">Cholesterol</span> <?php echo $cholesVal; ?>mg</td>
-			<td class="right bold"><?php echo number_format(($cholesVal/'300')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($cholesVal/'300')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td><span class="bold">Sodium</span> <?php echo $sodiumVal; ?>mg</td>
-			<td class="right bold"><?php echo number_format(($sodiumVal/'2400')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($sodiumVal/'2400')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td><span class="bold">Potassium</span> <?php echo $kVal; ?>mg</td>
-			<td class="right bold"><?php echo number_format(($kVal/'3500')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($kVal/'3500')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td><span class="bold">Total Carbohydrate</span> <?php echo $carbVal; ?>g</td>
-			<td class="right bold"><?php echo number_format(($carbVal/'300')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($carbVal/'300')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Dietary Fiber <?php echo $fiberVal; ?>g</td>
-			<td class="right bold"><?php echo number_format(($fiberVal/'25')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($fiberVal/'25')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Sugars <?php echo $sugarVal; ?>g</td>
@@ -205,23 +228,23 @@
 		</tr>
 		<tr>
 			<td class="borderBottomXThick"><span class="bold">Protein</span> <?php echo $proteinVal; ?>g</td>
-			<td class="right bold borderBottomXThick"><?php echo number_format(($proteinVal/'50')*100,2).'%'; ?></td>
+			<td class="right-text bold borderBottomXThick"><?php echo number_format(($proteinVal/'50')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Vitamin A <?php echo $vitAVal; ?>IU</td>
-			<td class="right bold"><?php echo number_format(($vitAVal/'5000')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($vitAVal/'5000')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Vitamin C <?php echo $vitCVal; ?>mg</td>
-			<td class="right bold"><?php echo number_format(($vitCVal/'60')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($vitCVal/'60')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td>Calcium <?php echo $caVal; ?>mg</td>
-			<td class="right bold"><?php echo number_format(($caVal/'1000')*100,2).'%'; ?></td>
+			<td class="right-text bold"><?php echo number_format(($caVal/'1000')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td class="borderBottomThin">Iron <?php echo $ironVal; ?>mg</td>
-			<td class="right bold borderBottomThin"><?php echo number_format(($ironVal/'18')*100,2).'%'; ?></td>
+			<td class="right-text bold borderBottomThin"><?php echo number_format(($ironVal/'18')*100,2).'%'; ?></td>
 		</tr>
 		<tr>
 			<td colspan="2">* Percent Daily Values are based on a 2,000 calorie diet. Your Daily Values may be higher or lower depending on your calorie needs.</td>

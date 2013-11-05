@@ -3,16 +3,15 @@
 
 	<?php  
 	
-
 	print "<pre>";
-	print_r($recipe['matches'][0]);
+	print_r($recipe);
 	print "</pre>";
 	
 		// display recipes
 		foreach($recipe['matches'] as $r) {
 	?>
 	
-	<a href="../Recipe/index/<?php echo $r['id']; ?>">
+	<a href="../detail/<?php echo $r['id']; ?>">
 	<!-- <?php echo $this->Html->link(
 		'Recipe', array('controller' => 'Recipe', 'action' => 'index', $recipe["id"]));?> -->
 		
