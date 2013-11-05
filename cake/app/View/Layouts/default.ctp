@@ -18,6 +18,7 @@ $cakeDescription = __d('cake_dev', 'Easy As Cake, Whole Food\'s Recipe Order');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
 	<div id="container">

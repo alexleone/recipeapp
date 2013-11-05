@@ -61,7 +61,7 @@
  */
 class DATABASE_CONFIG {
 
-// 	public $default = array(
+	// public $default = array(
 // 		'datasource' => 'Database/Mysql',
 // 		'persistent' => false,
 // 		'host' => 'recipeuserdb.db.8206051.hostedresource.com',

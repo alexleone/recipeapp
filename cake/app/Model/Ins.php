@@ -10,6 +10,7 @@ class Ins extends AppModel {
 		// API credentials
 		//
 		$appid = "fa6a47f80f";
+		// $appid="cf79e45987";
 		$storeid = "698ea63147";
 
 		$requeststr = "http://www.SupermarketAPI.com/api.asmx/COMMERCIAL_SearchForItem?";
