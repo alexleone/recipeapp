@@ -42,6 +42,12 @@
 	
 	Router::connect('/ins/add/*', array('controller' => 'ins', 'action' => 'add'));
 	
+	Router::connect('/recipadmin/', array('controller' => 'recipeadmin', 'action' => 'index'));
+	
+	Router::connect('/recipadmin/get/*', array('controller' => 'recipeadmin', 'action' => 'get'));
+	
+	Router::connect('/recipeadmin/add/*', array('controller' => 'recipeadmin', 'action' => 'add'));
+	
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

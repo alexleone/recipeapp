@@ -10,7 +10,6 @@ class RecipesController extends AppController {
     //public $components = array('Session');
 
 	public function index() {
-	
     	//get the data from the json file
 		//$str_file_info = file_get_contents("recipes.json");
 		//decode json into array of objects
@@ -35,37 +34,5 @@ class RecipesController extends AppController {
 			$this->set('recipe'.$i++, $this->Recipe->getById($id));
 		}
     }
-    
-    
-    
-//	 public function recipe($id) {
-//         if (!$id) {
-//             throw new NotFoundException(__('No Recipe Id'));
-//         }
-//         $recipe = $this->Recipe->getRecipeById($id);
-//         if (!$recipe) {
-//             throw new NotFoundException(__('No Recipe Found With That Id: '. $id));
-//         }
-//         $this->set('recipe', $recipe);
-//     }
-//     
-   
-//     public function add() {
-//         if ($this->request->is('recipe')) {
-//             $this->Recipe->create();
-//             if ($this->Post->save($this->request->data)) {
-//                 $this->Session->setFlash(__('Your post has been saved.'));
-//                 return $this->redirect(array('action' => 'index'));
-//             }
-//             $this->Session->setFlash(__('Unable to add your post.'));
-//         }
-//     }
-// 	
-	
-
-	
-	
-		
-
 	
 }
