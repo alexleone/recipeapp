@@ -34,8 +34,8 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	
 	 public $components = array(
-        'Session', 
-          'DebugKit.Toolbar'
+        'Session',
+        'DebugKit.Toolbar'
     );
     //      'Users.RememberMe'
     public $helpers = array('Html', 'Form', 'Session');

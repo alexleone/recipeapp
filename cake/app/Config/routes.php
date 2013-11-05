@@ -44,12 +44,11 @@
 	
 	Router::connect('/recipadmin/', array('controller' => 'recipeadmin', 'action' => 'index'));
 	
-	Router::connect('/recipadmin/cuisines/*', array('controller' => 'recipeadmin', 'action' => 'cuisines'));
+	Router::connect('/recipadmin/get/*', array('controller' => 'recipeadmin', 'action' => 'get'));
 	
-	Router::connect('/recipeadmin/courses/*', array('controller' => 'recipeadmin', 'action' => 'courses'));
+	Router::connect('/recipeadmin/add/*', array('controller' => 'recipeadmin', 'action' => 'add'));
 	
-	Router::connect('/recipeadmin/detail/*', array('controller' => 'recipeadmin', 'action' => 'detail'));
-	
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

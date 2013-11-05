@@ -6,31 +6,20 @@ class RecipeAdminController extends AppController {
 	
 	public $name = 'RecipeAdmin';
     public $uses = 'Recipe';
-    public $components = array(
-        'RequestHandler'
-    );
-    public $helpers = array('Html', 'Form', 'Js'=>array("Jquery")); 
-    
+     
+        
 	public function index() {
-		
+		$this->set('recipe', 'index method from recipeadmin controller');
     }
+	 
+	public function get($id) {
+		
+		$this->set('recipe', $this->Recipe->getRecipesByIngList($id));
+    }
+    
+    public function add() {
+		$this->set('recipe', 'index method from recipeadmin controller');
 
-    public function cuisines($cuisine) {	
-		$this->set('cusine', $cuisine);
-		Debugger::dump($this->Recipe->getRecipesByCuisine($cuisine));
-		$this->set('recipe', $this->Recipe->getRecipesByCuisine($cuisine));
-    }
-    
-    public function courses($courses) {
-		
-		$this->set('recipe', $this->Recipe->getRecipesByCourse($courses));
-		
-    }
-    
-    public function detail($id) {
-	
-		$this->set('recipe', $this->Recipe->getById($id));
-		
     }
 	
 }
