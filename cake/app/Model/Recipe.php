@@ -113,15 +113,9 @@ class Recipe extends AppModel {
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
-		$course="";
-		$course="Appetizers";
 		// Building string for GET request
 		//
-		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&';
-		$requeststr = $requeststr.'_app_id='.$appid;
-		$requeststr = $requeststr.'&_app_key='.$appkey;
-		$requeststr = $requeststr.'&allowedCourse[]=course^course-'.$course;
-
+		$requeststr = 'http://api.yummly.com/v1/api/cuisine?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCuisine[]=cuisine^cuisine-'.'&allowedCourse[]=course^course-'.$cuisine;
 
 		$output =  $this->getDataFromYummly($requeststr);
 	
@@ -129,5 +123,23 @@ class Recipe extends AppModel {
 	}	
 
 	
+	
+	public function getRecipesByCuisine($cuisine){
+		
+		// API credentials
+		//
+		$personsName="alex";
+		$appid =  $this->getAppidByPerson($personsName);
+		$appkey = $this->getAppkeyByPerson($personsName);
+		
+		// Building string for GET request
+		$requeststr = 'http://api.yummly.com/v1/api/cuisine?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCuisine[]=cuisine^cuisine-'.$cuisine;
+		Debugger::dump($requeststr);
+		$output =  $this->getDataFromYummly($requeststr);
+	
+		return $output;
+	}	
+	
+
 	
 }
