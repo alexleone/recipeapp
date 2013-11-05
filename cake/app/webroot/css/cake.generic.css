@@ -756,7 +756,7 @@ pre {
 
 
 /* Recipe styles */
-.listingBox, .recipeBox{
+.listingBox, .recipeBox, .listingBoxSmall{
 	position: relative;
 	padding: 10px 10px 5px;
 	margin: 0px;
@@ -770,6 +770,10 @@ pre {
 	width: 350px;
 	height: 325px;
 }
+.listingBoxSmall {
+	width: 350px;
+	height: 200px;
+}
 li{
 	color: #454440;
 	font-size: 14px;
@@ -779,7 +783,10 @@ li{
 .thumb{
 	width: 350px;
 }
-.right{
+.thumbSmall{
+	width: 90px;
+}
+.right-text{
 	text-align: right;
 }
 .bold{
@@ -812,6 +819,19 @@ ul#ingredientList ul.hidingProducts, .hidingDescription {
 ul#ingredientList ul.showingProducts, .showingDescription {
 	display: block;
 }
+form.productForm {
+	position: relative;
+}
+form.productForm div {
+	position: absolute;
+}
+form.productForm div.input.select {
+	top: 0px;
+	left: 25px;
+}
+form.productForm div.submit {
+	left: 110px;
+}
 .showingDescription {
 	background: transparent url('../img/up-arrow.png') no-repeat left top;
 	width: 250px;
@@ -829,11 +849,11 @@ ul#ingredientList ul.showingProducts, .showingDescription {
 ul#ingredientList ul.showingProducts li {
 	display: block;
 	float: left;
- 	height: 100px;
+ 	height: 150px;
  	width: 200px;
- 	border: 1px solid #000;
- 	padding: 5px;
- 	margin-bottom: 10px;
+ 	border: 1px solid #ddd;
+ 	padding: 10px;
+ 	margin-bottom: 20px;
 }
 ul#ingredientList ul.showingProducts img.productImg {
 	width: 90px;
