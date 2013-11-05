@@ -756,7 +756,7 @@ pre {
 
 
 /* Recipe styles */
-.listingBox, .recipeBox{
+.listingBox, .recipeBox, .listingBoxSmall{
 	position: relative;
 	padding: 10px 10px 5px;
 	margin: 0px;
@@ -770,6 +770,10 @@ pre {
 	width: 350px;
 	height: 325px;
 }
+.listingBoxSmall {
+	width: 350px;
+	height: 150px;
+}
 li{
 	color: #454440;
 	font-size: 14px;
@@ -778,6 +782,9 @@ li{
 }
 .thumb{
 	width: 350px;
+}
+.thumbSmall{
+	width: 90px;
 }
 .right{
 	text-align: right;

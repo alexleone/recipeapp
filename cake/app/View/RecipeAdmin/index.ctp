@@ -13,7 +13,7 @@ function getRecipesByCuisine(cuisine){
 }
 function getRecipesByCourse(course){
 	$.ajax({
-		url: '/recipeapp/cake/RecipeAdmin/course/'+course,
+		url: '/recipeapp/cake/RecipeAdmin/courses/'+course,
 		cache: false,
 		type: 'GET',
 		dataType: 'HTML',
