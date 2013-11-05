@@ -11,7 +11,7 @@
 		foreach($recipe['matches'] as $r) {
 	?>
 	
-	<a href="../detail/<?php echo $r['id']; ?>">
+	<a href="/recipeapp/cake/RecipeAdmin/detail/<?php echo $r['id']; ?>">
 	<!-- <?php echo $this->Html->link(
 		'Recipe', array('controller' => 'Recipe', 'action' => 'index', $recipe["id"]));?> -->
 		
