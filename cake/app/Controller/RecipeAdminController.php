@@ -17,7 +17,7 @@ class RecipeAdminController extends AppController {
 
     public function cuisines($cuisine) {	
 		$this->set('cusine', $cuisine);
-		Debugger::dump($this->Recipe->getRecipesByCuisine($cuisine));
+// 		Debugger::dump($this->Recipe->getRecipesByCuisine($cuisine));
 		$this->set('recipe', $this->Recipe->getRecipesByCuisine($cuisine));
     }
     
@@ -27,9 +27,24 @@ class RecipeAdminController extends AppController {
 		
     }
     
-    public function detail($id) {
-	
+    public function detail($id, $items) {
+		$recipe = $this->Recipe->getById($id);
+		//working with items
+		//check if all ingredients are in db 
+		$this->loadModel('Ins');
+		$explodedItems = explode( '-', $items );
+		foreach($explodedItems as $item){
+			if ($this->Ins->hasAny($item)){
+				$this->set('debug', "we got items");
+			}
+		}
+		
+		$this->set('debug', $items);
+		
+
+		
 		$this->set('recipe', $this->Recipe->getById($id));
+		
 		
     }
 	

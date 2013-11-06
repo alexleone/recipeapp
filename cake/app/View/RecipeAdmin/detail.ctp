@@ -1,4 +1,7 @@
 	<?php  
+	
+	print $debug;
+
 		// display recipe
 		if(!empty($recipe) && isset($recipe)) {
 	?>

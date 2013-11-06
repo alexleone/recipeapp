@@ -6,7 +6,6 @@ function getRecipesByCuisine(cuisine){
 		type: 'GET',
 		dataType: 'HTML',
 		success: function (data) {
-			alert(data);
 			$('#content').html(data);
 		}
 	});
@@ -18,7 +17,6 @@ function getRecipesByCourse(course){
 		type: 'GET',
 		dataType: 'HTML',
 		success: function (data) {
-			alert(data);
 			$('#content').html(data);
 		}
 	});
