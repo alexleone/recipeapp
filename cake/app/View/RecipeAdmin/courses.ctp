@@ -2,10 +2,11 @@
 <?php  
 	// display recipes
 	foreach($recipe['matches'] as $r) {
-	$items= "";
+		$items= "";
 		foreach($r['ingredients'] as $item){
-				$items .= str_replace(' ', '+', $item)."-";
+			$items .= str_replace(' ', '+', $item)."_";
 		}
+		$items = substr($items, 0 , -1); // removes ending "-"
 		$passed = $r['id'].'/'.$items;
 ?>
 <a href="/recipeapp/cake/RecipeAdmin/detail/<?php echo $passed ?>">	

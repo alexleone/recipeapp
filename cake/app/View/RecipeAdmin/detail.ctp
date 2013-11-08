@@ -1,10 +1,11 @@
-	<?php  
-	
-	print $debug;
-
-		// display recipe
-		if(!empty($recipe) && isset($recipe)) {
-	?>
+<?php 
+	echo "<pre>"; 
+	print_r($items);
+	echo "</pre>";
+	print $itemsString;
+// display recipe
+if(!empty($recipe) && isset($recipe)) {
+?>
 
 
 <script type="text/javascript">
@@ -43,6 +44,9 @@
 		}
 	}
 </script>
+
+<div id="dontUse">
+</div>
 		
 <div class="recipeBox">
 	<img class="thumb" src="<?php echo $recipe['images']['0']['hostedLargeUrl']; ?>" alt="<?php echo $recipe['name']; ?>" />
@@ -52,17 +56,21 @@
 
 		<?php if (array_key_exists('cuisine', $recipe['attributes'])) {
 			echo "<h5>Cuisine: ";
+			$cuisineString = "";
 			foreach($recipe['attributes']['cuisine'] as $cuisine) { 
-				echo $cuisine."<br />";
+				$cuisineString .= $cuisine. ", ";
 			} 
-			echo "</h5>";
+			$cuisineString = substr($cuisineString, 0, -2); // removes ending ", "
+			echo $cuisineString."</h5>";
 		}
 		if (array_key_exists('course', $recipe['attributes'])) { 
 			echo "<h5>Course: ";
+			$courseString = "";
 			foreach($recipe['attributes']['course'] as $course) { 
-				echo $course."<br />";
+				$courseString .= $course. ", ";
 			}
-			echo "</h5>";
+			$courseString = substr($courseString, 0, -2); // removes ending ", "
+			echo $courseString."</h5>";
 		}?>
 	
 	<h5>Directions at: <a id="Logo" href="<?php echo $recipe['source']['sourceRecipeUrl']; ?>" target="_blank"> <?php echo $recipe['source']['sourceDisplayName']; ?></a></h5>
@@ -74,35 +82,98 @@
 <!-- Ingredients -->
 	<ul id="ingredientList">
 		<?php  
-		$num = 0;
  		$numProduct = 0;
-		foreach($recipe['ingredientLines'] as $ingredient) { ?>
-		<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $num; ?>')"><?php echo $ingredient; ?></a></li>
-<!-- Products -->
-			<ul id="productList<?php echo $num; ?>" class="hidingProducts">
-			<?php for ($n = 0; $n <= 5; $n++) { ?>
-				<li>
-					<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="" alt="pic" class="productImg" />
-					Product name<br />
-					Price<br />
-					<?php echo $this->Form->create(array('class' => 'productForm')); ?>
-					<?php echo $this->Form->input('Qty:', array(
-						'options' => array(2, 3, 4, 5, 6, 7, 8, 9, 10),
-    					'empty' => '1'
-    				)); ?>
-					<?php echo $this->Form->end('Add'); ?>
-					<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
-						<div class="desWrap">Description:  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-					</div>
-				</li>
-				<?php 
-				$numProduct++;
-			}?>
-			</ul>
+		
+		// order ingredient key words with ingredient detailed lines
+		$inList = array();
+		$n = 0;
+		foreach ($recipe['ingredientLines'] as $ingredient) { 
+			foreach ($items as $item) {
+				if (stristr($ingredient, $item) !== FALSE && (!isset($inList[$n]) || strlen($inList[$n]) < strlen($item))) {
+					$inList[$n] = $item;
+				}
+			}
+			$n++;
+		}
+		echo "<pre>";
+		print_r($inList);
+		//print_r($results);
+		echo "</pre>";
+		
+		// display ingredient and product info
+		for ($i=0; $i<count($items); $i++) {
+			foreach ($results as $key => $value) {
+				//for ($i=0; $i<count($inList); $i++) {
+				if (isset($inList[$i]) && $key == $inList[$i]) {
+				?>
+					<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $i; ?>')"><?php echo $recipe['ingredientLines'][$i]; ?></a></li>
+					<!-- Products -->
+					<ul id="productList<?php echo $i; ?>" class="hidingProducts">
+					<?php
+						if ($value == 0) {
+							echo "<span class=\"bold\">Searching for: ".$key. "</span>";
+							echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
+							print $this->Form->input('ProductSearch', array('type'=>'hidden', 'value' => $key, 'id' => 'ProductSearch'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->input('Ingredient', array('type'=>'hidden', 'value' => $key, 'id' => 'Ingredient'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->input('RecipeID', array('type'=>'hidden', 'value' => $recipe['id'], 'id' => 'RecipeID'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->input('ItemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => 'Items'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->end('Search');
+						}
+						else {
+							echo "Display products from db.<br /><br />";
+							for ($j=0; !empty($value[$j]); $j++) {
+								?>
+								<li>
+									<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="<?php echo "data:image/jpeg;base64," . base64_encode($value[$j]['products']['image']); ?>" alt="pic" class="productImg" />
+									<?php echo $value[$j]['products']['name']; ?><br />
+									$<?php echo $value[$j]['products']['price']; ?><br />
+									<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
+										<div class="desWrap"><?php echo $value[$j]['products']['description']; ?></div>
+									</div>
+								</li>
+							<?php 
+							$numProduct++;
+							} // end for
+						} // end else
+					echo "</ul>";
+					} // end if
+				} // end foreach
+				// when yummly isn't consistant, type in ingredient and keyword values
+				if (!isset($inList[$i])) { ?>
+					<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $i; ?>')"><?php echo $recipe['ingredientLines'][$i]; ?></a></li>
+					<!-- Products -->
+					<ul id="productList<?php echo $i; ?>" class="hidingProducts">
+						<?php
+						// display ingredients not stored in order
+						$missing = array_diff($items, $inList);
+						print_r($missing);
+						if (count($missing) == 1) {
+							foreach ($missing as $m) {
+								echo "<span class=\"bold\">Searching for: ".$m. "</span>";
+								echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
+								print $this->Form->input('ProductSearch', array('type'=>'hidden', 'value' => $m, 'id' => 'ProductSearch'.$i, 'div' => 'ins-get-form-text')).'<br />';
+								print $this->Form->input('Ingredient', array('type'=>'hidden', 'value' => $m, 'id' => 'Ingredient'.$i, 'div' => 'ins-get-form-text'));
+								print $this->Form->input('RecipeID', array('type'=>'hidden', 'value' => $recipe['id'], 'id' => 'RecipeID'.$i, 'div' => 'ins-get-form-text'));
+								print $this->Form->input('ItemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => 'Items'.$i, 'div' => 'ins-get-form-text'));
+								print $this->Form->end('Search');
+							}
+						}
+						else {
+						// think of new way to search for ingredient without having user type or tell user to ignore recipe
+							echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
+							print $this->Form->input('ProductSearch', array('type'=>'hidden', 'value' => '', 'label' => 'Product search:', 'id' => 'ProductSearch'.$i, 'div' => 'ins-get-form-text')).'<br />';
+							print $this->Form->input('Ingredient', array('type'=>'text', 'value' => '', 'label' => 'Important! Ingredient to be referenced:', 'id' => 'Ingredient'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->input('RecipeID', array('type'=>'hidden', 'value' => $recipe['id'], 'id' => 'RecipeID'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->input('ItemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => 'Items'.$i, 'div' => 'ins-get-form-text'));
+							print $this->Form->end('Search');
+						}
+						?>
+					</ul>
+					<?php
+				}
+			} // end for
+			?>
 <!-- end Products -->
-		<?php 
-		$num++;
-		} ?>
 	</ul>
 <!-- end Ingredients -->
  
@@ -254,6 +325,37 @@
 		</tr>
 	</table>
 <!-- end Nutrition Facts -->
+	<?php
+		// Add Recipe button
+		// make this appear only when all ingredients have products
+		echo $this->Form->create(null, array('url' => array('controller' => 'RecipeAdmin', 'action' => 'add'), 'type' => 'post'));
+		echo $this->Form->input('Recipe.rec_name', array('type'=>'hidden', 'value' => $recipe['id']));
+		echo $this->Form->input('Recipe.rating', array('type'=>'hidden', 'value' => $recipe['rating']));
+		$explodedItems = explode( '_', $itemsString);
+		$n = 0;
+		foreach ($explodedItems as $e) {
+			echo $this->Form->input('Ins.' .$n. '.in_name', array('type'=>'hidden', 'value' => $e));
+			$n++;
+		}
+		
+		if (array_key_exists('cuisine', $recipe['attributes'])) {
+			$explodedCuisines = explode( ', ', $cuisineString);
+			$n = 0;
+			foreach ($explodedCuisines as $e) {
+				echo $this->Form->input('Cuisines.' .$n. '.type', array('type'=>'hidden', 'value' => $cuisineString));
+				$n++;
+			}
+		}
+		if (array_key_exists('course', $recipe['attributes'])) {
+			$explodedCourses = explode( ', ', $courseString);
+			$n = 0;
+			foreach ($explodedCourses as $e) {
+				echo $this->Form->input('Courses.' .$n. '.type', array('type'=>'hidden', 'value' => $courseString));
+				$n++;
+			}
+		}
+		echo $this->Form->end('Add Recipe');
+	?>
 </div>
 
 <?php 	

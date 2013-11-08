@@ -48,5 +48,30 @@ class InsController extends AppController {
  		}
 
 	 }
+	 
+	 public function search() {
+	 	$item = $this->request->data;
+	 	
+	 	if (!isset($item['Ins']['ProductSearch']) || empty($item['Ins']['ProductSearch'])) {
+	 		$in = $this->Ins->getItem($item['Ins']['Ingredient']);
+	 	}
+	 	else {
+	 		$in = $this->Ins->getItem($item['Ins']['ProductSearch']);
+	 	}
+	 	
+	 	if (isset($in['Product_Commercial']['Itemname']) && $in['Product_Commercial']['Itemname'] == "NOITEM") {
+	 		$this->set('productSearch', $item['Ins']['ProductSearch']);
+	 		$this->set('in', '');
+	 	}
+		else {
+	 		$this->set('productSearch', $item['Ins']['ProductSearch']);
+			$this->set('in', $in);
+		}
+	 	
+	 	$this->set('item', $item);
+	 	$this->set('ingredient', $item['Ins']['Ingredient']);
+	 	$this->set('recipeID', $item['Ins']['RecipeID']);
+	 	$this->set('itemsString', $item['Ins']['ItemsString']);
+	}
 	
 }

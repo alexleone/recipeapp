@@ -6,7 +6,52 @@ class Ins extends AppModel {
 
 	public $name = 'Ins';
 	
+	public $primaryKey = 'in_id';
+	
+	public $hasMany = array(
+    'Products' => array(
+        'className' => 'Products',
+        'foreignKey' => 'in_id',
+        'unique' => true,
+        'conditions' => '',
+        'fields' => '',
+        'order' => '',
+        'limit' => '',
+        'offset' => '',
+        'finderQuery' => '',
+        'deleteQuery' => '',
+        'insertQuery' => ''),
+    'RecIns' => array(
+    		'className' => 'RecIns',
+    		'foreignKey' => 'rec_id',
+    		'associationForeignKey' => 'in_id',
+    		'with' => 'RecIns'
+    ));
+    
+  //   public $hasAndBelongsToMany = array(
+//     'Recipe' => array(
+//         'className' => 'Recipe',
+//         'joinTable' => 'recins',
+//         //'foreignKey' => 'in_id',
+//         //'associationForeignKey' => 'rec_id',
+//         'unique' => 'keepExisting',
+//         'with' => 'RecIns',
+//         'conditions' => '',
+//         'fields' => '',
+//         'order' => '',
+//         'limit' => '',
+//         'offset' => '',
+//         'finderQuery' => '',
+//         'deleteQuery' => '',
+//         'insertQuery' => ''
+//     ));
+	
 	public function getItem($item){
+		
+		if ($item == "we got items") {
+			return $item;
+		}
+		else {
 		// API credentials
 		//
 		$appid = "fa6a47f80f";
@@ -24,6 +69,7 @@ class Ins extends AppModel {
 		$array = json_decode($json,TRUE);
 		
 		return 	$array;
+		}
 
 	}
 

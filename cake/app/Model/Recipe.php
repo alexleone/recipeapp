@@ -6,7 +6,76 @@ App::uses('Recipe', 'Model');
 class Recipe extends AppModel {
  	
  	public $name = 'Recipe';
+ 	
+ 	public $primaryKey = 'rec_id';
 	
+	// public $hasAndBelongsToMany = array(
+//     'Ins' => array(
+//         'className' => 'Ins',
+//         'joinTable' => 'recins',
+//         //'foreignKey' => 'rec_id',
+//         //'associationForeignKey' => 'in_id',
+//         'unique' => 'keepExisting',
+//         'with' => 'RecIns',
+//         'conditions' => '',
+//         'fields' => '',
+//         'order' => '',
+//         'limit' => '',
+//         'offset' => '',
+//         'finderQuery' => '',
+//         'deleteQuery' => '',
+//         'insertQuery' => ''
+//     ));
+    
+    public $hasMany = array(
+    'RecIns' => array(
+        'className' => 'RecIns',
+       'joinTable' => 'Ins',
+        'foreignKey' => 'in_id',
+        'associationForeignKey' => 'rec_id',
+        'unique' => 'keepExisting',
+        'with' => 'RecIns',
+        'conditions' => '',
+        'fields' => '',
+        'order' => '',
+        'limit' => '',
+        'offset' => '',
+        'finderQuery' => '',
+        'deleteQuery' => '',
+        'insertQuery' => ''
+    ),
+    'Courses' => array(
+        'className' => 'Courses',
+        'joinTable' => 'reccourses',
+        'foreignKey' => 'cou_id',
+        'associationForeignKey' => 'cou_id',
+        'unique' => 'keepExisting',
+        'with' => 'RecCourses',
+        'conditions' => '',
+        'fields' => '',
+        'order' => '',
+        'limit' => '',
+        'offset' => '',
+        'finderQuery' => '',
+        'deleteQuery' => '',
+        'insertQuery' => ''),
+    'Cuisines' => array(
+        'className' => 'Cuisines',
+        'joinTable' => 'reccuisines',
+        'foreignKey' => 'cuis_id',
+        'associationForeignKey' => 'cuis_id',
+        'unique' => 'keepExisting',
+        'with' => 'RecCuisines',
+        'conditions' => '',
+        'fields' => '',
+        'order' => '',
+        'limit' => '',
+        'offset' => '',
+        'finderQuery' => '',
+        'deleteQuery' => '',
+        'insertQuery' => ''
+    ));
+    
 	
 	public function getAppidByPerson($personsName){
 		switch($personsName){
@@ -67,7 +136,7 @@ class Recipe extends AppModel {
 			
 		// API credentials
 		//
-		$personsName="alex";
+		$personsName="jenni";
 		$appid = Recipe::getAppidByPerson($personsName);
 		$appkey = Recipe::getAppkeyByPerson($personsName);
 		
@@ -86,7 +155,7 @@ class Recipe extends AppModel {
 			
 		// API credentials
 		//
-		$personsName="alex";
+		$personsName="jenni";
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
@@ -109,7 +178,7 @@ class Recipe extends AppModel {
 			
 		// API credentials
 		//
-		$personsName="alex";
+		$personsName="jenni";
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
@@ -128,7 +197,7 @@ class Recipe extends AppModel {
 		
 		// API credentials
 		//
-		$personsName="alex";
+		$personsName="jenni";
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
