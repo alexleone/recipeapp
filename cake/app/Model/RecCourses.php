@@ -12,8 +12,8 @@ class RecCourses extends AppModel {
 	public $belongsTo = array(
     'Recipe' => array(
         'className' => 'Recipe',
-		//'joinTable' => 'reccourses',
-		'foreignKey' => 'cous_id',
+		'joinTable' => 'reccourses',
+		'foreignKey' => 'cou_id',
         'associationForeignKey' => 'rec_id',
         'unique' => 'keepExisting',
         'conditions' => '',
@@ -26,9 +26,9 @@ class RecCourses extends AppModel {
         'insertQuery' => ''),
     'Courses' => array(
         'className' => 'Courses',
-        //'joinTable' => 'reccourses',
+        'joinTable' => 'reccourses',
 		'foreignKey' => 'rec_id',
-        'associationForeignKey' => 'cous_id',
+        'associationForeignKey' => 'cou_id',
         'unique' => 'keepExisting',
         'conditions' => '',
         'fields' => '',

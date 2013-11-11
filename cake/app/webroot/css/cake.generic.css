@@ -359,12 +359,12 @@ input[type=radio] {
 	margin: 0 0 6px 20px;
 	line-height: 26px;
 }
-input[type=submit] {
+input[type=submit], button.green {
 	display: inline;
 	font-size: 110%;
 	width: auto;
 }
-form .submit input[type=submit] {
+form .submit input[type=submit], button.green {
 	background:#62af56;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
 	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
@@ -374,7 +374,7 @@ form .submit input[type=submit] {
 	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
 	padding: 8px 10px;
 }
-form .submit input[type=submit]:hover {
+form .submit input[type=submit]:hover, button.green:hover {
 	background: #5BA150;
 }
 /* Form errors */
@@ -871,6 +871,11 @@ ul#ingredientList ul.showingProducts img.productImg {
 }
 .clear {
 	clear: both;
+}
+
+.grayout {
+	opacity: 0.4;
+    filter: alpha(opacity = 40);
 }
 
 /* Start View/Ins/get.ctp */

@@ -15,16 +15,37 @@ class RecipeAdminController extends AppController {
 		
     }
 
-    public function cuisines($cuisine) {	
-		$this->set('cusine', $cuisine);
-// 		Debugger::dump($this->Recipe->getRecipesByCuisine($cuisine));
-		$this->set('recipe', $this->Recipe->getRecipesByCuisine($cuisine));
+    public function cuisines($cuisine) {
+    	$recipe = $this->Recipe->getRecipesByCuisine($cuisine);
+		$this->set('recipe', $recipe);
+		
+		$inDb = array();
+		foreach ($recipe['matches'] as $r) {
+			if ($this->Recipe->hasAny(array('rec_name' => $r['id']))) {
+				$inDb[] = true;
+			}
+			else {
+			 	$inDb[] = false;
+			}
+		}
+		
+		$this->set('inDb', $inDb);
     }
     
     public function courses($courses) {
+		$recipe = $this->Recipe->getRecipesByCourse($courses);
+		$this->set('recipe', $recipe);
 		
-		$this->set('recipe', $this->Recipe->getRecipesByCourse($courses));
-		
+		$inDb = array();
+		foreach ($recipe['matches'] as $r) {
+			if ($this->Recipe->hasAny(array('rec_name' => $r['id']))) {
+				$inDb[] = true;
+			}
+			else {
+				$inDb[] = false;
+			}
+		}
+		$this->set('inDb', $inDb);
     }
     
     public function detail($id, $items) {
@@ -36,28 +57,9 @@ class RecipeAdminController extends AppController {
 		$this->loadModel('Ins');
 		$this->loadModel('Products');
 		$explodedItems = explode( '_', $items );
-		// foreach($explodedItems as $item){
-// 			if ($this->Ins->hasAny(array('in_name' => $item))){
-// 				//$this->set('debug', "we got items");
-// 				$array[$n] = "we got items";
-// 			}
-// 			else {
-// 				$array[$n] = $this->Ins->getItem($item);
-// 				//$this->set('item', $this->Ins->getItem($item));
-// 			}
-// 			$n++;
-// 		}
-// 		
-// 		$this->set('debug', $items);
-// 		
-// 		
-// 		
-// 		$this->set('items', $array);
-
 
 		foreach($explodedItems as $item){
 			if ($this->Ins->hasAny(array('in_name' => $item))){
-				//$this->set('debug', "we got items");
 				$in_id = $this->Ins->field('in_id', array('in_name' => $item));
 				$array[$item] = $this->Products->query('SELECT * FROM products WHERE in_id ='. $in_id. ';');
 				//$array[$item] = $this->Products->find('all', array('conditions' => array('Products.in_id' => $in_id)));
@@ -73,8 +75,16 @@ class RecipeAdminController extends AppController {
 		$this->set('itemsString', $items);
 		$this->set('items', $explodedItems);
 		$this->set('results', $array);
-		$this->set('recipe', $this->Recipe->getById($id));
 		
+		$recipe = $this->Recipe->getById($id);
+		$this->set('recipe', $recipe);
+		
+		$display = true;
+		if (in_array(0, $array, true) || $this->Recipe->hasAny(array('rec_name' => $recipe['id']))) {
+			$display = false;
+		}
+		
+		$this->set('display', $display);
 		
     }
     

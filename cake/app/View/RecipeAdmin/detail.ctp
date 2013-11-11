@@ -1,8 +1,4 @@
 <?php 
-	echo "<pre>"; 
-	print_r($items);
-	echo "</pre>";
-	print $itemsString;
 // display recipe
 if(!empty($recipe) && isset($recipe)) {
 ?>
@@ -44,9 +40,6 @@ if(!empty($recipe) && isset($recipe)) {
 		}
 	}
 </script>
-
-<div id="dontUse">
-</div>
 		
 <div class="recipeBox">
 	<img class="thumb" src="<?php echo $recipe['images']['0']['hostedLargeUrl']; ?>" alt="<?php echo $recipe['name']; ?>" />
@@ -95,10 +88,6 @@ if(!empty($recipe) && isset($recipe)) {
 			}
 			$n++;
 		}
-		echo "<pre>";
-		print_r($inList);
-		//print_r($results);
-		echo "</pre>";
 		
 		// display ingredient and product info
 		for ($i=0; $i<count($items); $i++) {
@@ -120,7 +109,6 @@ if(!empty($recipe) && isset($recipe)) {
 							print $this->Form->end('Search');
 						}
 						else {
-							echo "Display products from db.<br /><br />";
 							for ($j=0; !empty($value[$j]); $j++) {
 								?>
 								<li>
@@ -326,8 +314,9 @@ if(!empty($recipe) && isset($recipe)) {
 	</table>
 <!-- end Nutrition Facts -->
 	<?php
-		// Add Recipe button
-		// make this appear only when all ingredients have products
+		// Add Recipe form
+		// appear only when all ingredients have products and recipe is not in db
+		if ($display) {
 		echo $this->Form->create(null, array('url' => array('controller' => 'RecipeAdmin', 'action' => 'add'), 'type' => 'post'));
 		echo $this->Form->input('Recipe.rec_name', array('type'=>'hidden', 'value' => $recipe['id']));
 		echo $this->Form->input('Recipe.rating', array('type'=>'hidden', 'value' => $recipe['rating']));
@@ -342,7 +331,7 @@ if(!empty($recipe) && isset($recipe)) {
 			$explodedCuisines = explode( ', ', $cuisineString);
 			$n = 0;
 			foreach ($explodedCuisines as $e) {
-				echo $this->Form->input('Cuisines.' .$n. '.type', array('type'=>'hidden', 'value' => $cuisineString));
+				echo $this->Form->input('Cuisines.' .$n. '.type', array('type'=>'hidden', 'value' => $e));
 				$n++;
 			}
 		}
@@ -350,11 +339,15 @@ if(!empty($recipe) && isset($recipe)) {
 			$explodedCourses = explode( ', ', $courseString);
 			$n = 0;
 			foreach ($explodedCourses as $e) {
-				echo $this->Form->input('Courses.' .$n. '.type', array('type'=>'hidden', 'value' => $courseString));
+				echo $this->Form->input('Courses.' .$n. '.type', array('type'=>'hidden', 'value' => $e));
 				$n++;
 			}
 		}
 		echo $this->Form->end('Add Recipe');
+		}
+		else {
+			echo $this->Form->button('Add Recipe', array('disabled' => true, 'class' => 'grayout green'));
+		}
 	?>
 </div>
 
