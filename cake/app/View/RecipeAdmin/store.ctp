@@ -7,8 +7,15 @@
 </tr>
 	<?php
 	$i=0;
-	foreach($dataPostedToDb['Ins']['Products'] as $item){
+	if (array_key_exists('Ins', $dataPostedToDb)) {
+		foreach($dataPostedToDb['Ins']['Products'] as $item){
 			print '<tr><td>'.$item['name'].'</td><td>'.$item['price'].'</td><td><img src="data:image/jpg;base64,' . base64_encode($item['image']) .'" /></td><td>'.$item['description'].'</td></tr>';
+		}
+	}
+	else {
+		foreach($dataPostedToDb as $item){
+			print '<tr><td>'.$item['name'].'</td><td>'.$item['price'].'</td><td><img src="data:image/jpg;base64,' . base64_encode($item['image']) .'" /></td><td>'.$item['description'].'</td></tr>';
+		}
 	}
 	?>
 </table>

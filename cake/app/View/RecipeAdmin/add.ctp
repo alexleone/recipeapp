@@ -14,17 +14,21 @@
 	}
 	echo "</p>";
 	
-	echo "<h5>Courses</h5><p>";
-	for ($i=0; $i < count($data['Courses']); $i++) {
-		echo $data['Courses'][$i]['type']. "<br />";
+	if (array_key_exists('Courses', $data)) {
+		echo "<h5>Courses</h5><p>";
+		for ($i=0; $i < count($data['Courses']); $i++) {
+			echo $data['Courses'][$i]['type']. "<br />";
+		}
+		echo "</p>";
 	}
-	echo "</p>";
 	
-	echo "<h5>Cuisines</h5><p>";
-	for ($i=0; $i < count($data['Cuisines']); $i++) {
-		echo $data['Cuisines'][$i]['type']. "<br />";
+	if (array_key_exists('Cuisines', $data)) {
+		echo "<h5>Cuisines</h5><p>";
+		for ($i=0; $i < count($data['Cuisines']); $i++) {
+			echo $data['Cuisines'][$i]['type']. "<br />";
+		}
+		echo "</p>";
 	}
-	echo "</p>";
 	
 	echo "<a href=\"../RecipeAdmin\">Search for more Recipes</a>";
 ?>

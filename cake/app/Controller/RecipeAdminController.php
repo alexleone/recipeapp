@@ -58,6 +58,7 @@ class RecipeAdminController extends AppController {
 		$this->loadModel('Products');
 		$explodedItems = explode( '_', $items );
 
+		// get products from db
 		foreach($explodedItems as $item){
 			if ($this->Ins->hasAny(array('in_name' => $item))){
 				$in_id = $this->Ins->field('in_id', array('in_name' => $item));
@@ -65,11 +66,8 @@ class RecipeAdminController extends AppController {
 				//$array[$item] = $this->Products->find('all', array('conditions' => array('Products.in_id' => $in_id)));
 			}
 			else {
-				//$array[$n] = $this->Ins->getItem($item);
-				//$this->set('item', $this->Ins->getItem($item));
 				$array[$item] = 0;
 			}
-			//$n++;
 		}
 		
 		$this->set('itemsString', $items);
@@ -79,11 +77,11 @@ class RecipeAdminController extends AppController {
 		$recipe = $this->Recipe->getById($id);
 		$this->set('recipe', $recipe);
 		
+		// displaying recipe submit button
 		$display = true;
 		if (in_array(0, $array, true) || $this->Recipe->hasAny(array('rec_name' => $recipe['id']))) {
 			$display = false;
 		}
-		
 		$this->set('display', $display);
 		
     }
@@ -93,37 +91,63 @@ class RecipeAdminController extends AppController {
 		$this->set('itemInfo', $itemInfo);
 		$this->set('in', array_keys($itemInfo));
 		
-		$data = array();
 		// saving selected product items to array
+		$data = array();
 		$this->loadModel('Ins');
 		$this->loadModel('Products');
 		
-		foreach($itemInfo['Ins'] as $i) {
-			if ($i['item_checked']) {
-				$data[] = array(
-					'name' => $i['item_name'], 
-					'price' => $i['pricing'],
-					'image' => file_get_contents($i['item_image']),
-					'description' => $i['item_description']
-				);
- 			}		
- 		}
+		// if ingredient saved in db, only save products
+		if ($this->Ins->hasAny(array('in_name' => $itemInfo['Ins']['0']['ingredient']))) {
+			$in_id = $this->Ins->field('in_id', array('in_name' => $itemInfo['Ins']['0']['ingredient']));
+			foreach($itemInfo['Ins'] as $i) {
+				if ($i['item_checked']) {
+					$data[] = array(
+						'name' => $i['item_name'], 
+						'price' => $i['pricing'],
+						'image' => file_get_contents($i['item_image']),
+						'description' => $i['item_description'],
+						'in_id' => $in_id
+					);
+ 				}		
+ 			}
+ 			// saving to db
+ 			if($this->Products->saveAll($data)){
+ 			 	$this->Session->setFlash(__('Your Items Have Been Added.'));
+ 				$this->set('dataPostedToDb', $data);
+ 			}else{
+ 				$this->Session->setFlash(__('DB ERROR'));
+ 				$this->set('dataPostedToDb', 'DB ERROR');
+ 			}
+		}
+		// save ingredient and products
+		else {
+			foreach($itemInfo['Ins'] as $i) {
+				if ($i['item_checked']) {
+					$data[] = array(
+						'name' => $i['item_name'], 
+						'price' => $i['pricing'],
+						'image' => file_get_contents($i['item_image']),
+						'description' => $i['item_description']
+					);
+ 				}		
+ 			}
 		
-		// saving ingredient to array
-		$data = array(
-			'Ins' => array('in_name' => $itemInfo['Ins']['0']['ingredient'],
-				'Products'=> $data));
+			// saving ingredient and products to array
+			$data = array(
+				'Ins' => array('in_name' => $itemInfo['Ins']['0']['ingredient'],
+					'Products'=> $data));
 
-
- 		if($this->Ins->saveAll($data, array('deep' => true))){
- 		 	$this->Session->setFlash(__('Your Items Have Been Added.'));
- 			$this->set('dataPostedToDb', $data);
- 		}else{
- 			$this->Session->setFlash(__('DB ERROR'));
- 			$this->set('dataPostedToDb', 'DB ERROR');
+			// saving to db
+	 		if($this->Ins->saveAll($data, array('deep' => true))){
+ 			 	$this->Session->setFlash(__('Your Items Have Been Added.'));
+ 				$this->set('dataPostedToDb', $data);
+ 			}else{
+ 				$this->Session->setFlash(__('DB ERROR'));
+ 				$this->set('dataPostedToDb', 'DB ERROR');
+ 			}
  		}
  		
-
+		// for link back to recipe
 		$items = str_replace('+', '%2B', $itemInfo['Ins']['0']['itemsString']);
  		
  		$this->set('ingredient', $itemInfo['Ins']['0']['ingredient']);

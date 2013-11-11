@@ -873,6 +873,12 @@ ul#ingredientList ul.showingProducts img.productImg {
 	clear: both;
 }
 
+ul#ingredientList ul.showingProducts li.search {
+	border: none;
+	width: auto;
+	height: auto;
+}
+
 .grayout {
 	opacity: 0.4;
     filter: alpha(opacity = 40);
