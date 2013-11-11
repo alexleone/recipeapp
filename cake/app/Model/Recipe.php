@@ -184,7 +184,7 @@ class Recipe extends AppModel {
 		
 		// Building string for GET request
 		//
-		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCourse[]=course^course-'.$course;
+		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCourse[]=course^course-'.$course.'&maxResult=140';
 
 		$output =  $this->getDataFromYummly($requeststr);
 	
@@ -202,7 +202,7 @@ class Recipe extends AppModel {
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
 		// Building string for GET request
-		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCuisine[]=cuisine^cuisine-'.$cuisine;
+		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCuisine[]=cuisine^cuisine-'.$cuisine.'&maxResult=140';
 		Debugger::dump($requeststr);
 		$output =  $this->getDataFromYummly($requeststr);
 	

@@ -42,6 +42,6 @@ class AppController extends Controller {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		//$this->RememberMe->restoreLoginFromCookie();
+// 		$this->RememberMe->restoreLoginFromCookie();
 	}
 }

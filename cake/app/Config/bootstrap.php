@@ -111,9 +111,9 @@ CakeLog::config('error', array(
 /**
  * Cake Debug Plugin
  */
-//CakePlugin::load('DebugKit');
+
 CakePlugin::loadAll();
-//CakePlugin::load('Migrations');
+
 
 // Configure::write('App.defaultEmail', alexmleone@gmail.com);
 
