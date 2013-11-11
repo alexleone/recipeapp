@@ -122,7 +122,7 @@ if(!empty($recipe) && isset($recipe)) {
 					<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $i; ?>')"><?php echo $recipe['ingredientLines'][$i]; ?></a></li>
 					<!-- Products -->
 					<ul id="productList<?php echo $i; ?>" class="hidingProducts">
-					<?php
+						<?php
 						// display products from db
 						if ($value !== 0) {
 							for ($j=0; !empty($value[$j]); $j++) {
@@ -140,20 +140,15 @@ if(!empty($recipe) && isset($recipe)) {
 							} // end for
 						}
 						// display search button
-						//if ($value == 0) {
-							echo "<li class=\"search\">";
-							echo "<span class=\"bold\">Searching for: ".$key. "</span>";
-							echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
-							print $this->Form->input('ProductSearch', array('type'=>'hidden', 'value' => $key, 'id' => 'ProductSearch'.$i, 'div' => 'ins-get-form-text'));
-							print $this->Form->input('Ingredient', array('type'=>'hidden', 'value' => $key, 'id' => 'Ingredient'.$i, 'div' => 'ins-get-form-text'));
-							print $this->Form->input('RecipeID', array('type'=>'hidden', 'value' => $recipe['id'], 'id' => 'RecipeID'.$i, 'div' => 'ins-get-form-text'));
-							print $this->Form->input('ItemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => 'Items'.$i, 'div' => 'ins-get-form-text'));
-							print $this->Form->end('Search');
-							echo "</li>";
-						//}
-						//else {
-							
-						//} // end else
+						echo "<li class=\"search\">";
+						echo "<span class=\"bold\">Searching for: ".$key. "</span>";
+						echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
+						print $this->Form->input('ProductSearch', array('type'=>'hidden', 'value' => $key, 'id' => 'ProductSearch'.$i, 'div' => 'ins-get-form-text'));
+						print $this->Form->input('Ingredient', array('type'=>'hidden', 'value' => $key, 'id' => 'Ingredient'.$i, 'div' => 'ins-get-form-text'));
+						print $this->Form->input('RecipeID', array('type'=>'hidden', 'value' => $recipe['id'], 'id' => 'RecipeID'.$i, 'div' => 'ins-get-form-text'));
+						print $this->Form->input('ItemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => 'Items'.$i, 'div' => 'ins-get-form-text'));
+						print $this->Form->end('Search');
+						echo "</li>";
 					echo "</ul>";
 					echo "<!-- end Products -->";
 				} // end if
@@ -346,7 +341,7 @@ if(!empty($recipe) && isset($recipe)) {
 		echo $this->Form->end('Add Recipe');
 		}
 		else {
-			echo $this->Form->button('Add Recipe', array('disabled' => true, 'class' => 'grayout green'));
+			echo $this->Form->button('Add Recipe', array('disabled' => true, 'class' => 'grayout button'));
 		}
 	?>
 </div>

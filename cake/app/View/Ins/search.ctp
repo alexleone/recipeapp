@@ -1,4 +1,5 @@
 <?php 
+// search form
 echo "<h2>Searching for <span class=\"bold\">".$ingredient. "</span></h2>";
 echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
 print $this->Form->input('ProductSearch', array('value' => $productSearch, 'label' => false, 'div' => 'ins-get-form-text'));
@@ -6,6 +7,9 @@ print $this->Form->input('Ingredient', array('type'=>'hidden', 'value' => $ingre
 print $this->Form->input('RecipeID', array('type'=>'hidden', 'value' => $recipeID, 'id' => 'RecipeID', 'div' => 'ins-get-form-text'));
 print $this->Form->input('ItemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => 'Items', 'div' => 'ins-get-form-text'));
 print $this->Form->end('Search'); 
+// back to recipe form
+echo $this->Form->create(null, array('type' => 'post', 'url' => array('controller' => 'RecipeAdmin', 'action' => 'detail', $recipeID, $itemsString), 'id' => 'RecipeAdminBackDetailForm'));
+echo $this->Form->end('Back to Recipe'); 
 print '<hr class="ins-add-hr"/>';
 ?>
 
@@ -23,7 +27,13 @@ else {
 	// multiple item results
 	if (array_key_exists('0', $in['Product_Commercial'])) {
 	foreach($in['Product_Commercial'] as  $item){
-		print '<div class="ins-get-outer">';
+		// grayout if product in db
+		if (in_array($item['Itemname'], $results)) {
+			print '<div class="ins-get-outer grayout">';
+		}
+		else {
+			print '<div class="ins-get-outer">';
+		}
 		print '<div class="ins-get-box-thumb"><img src="'.$item['ItemImage'].'" /><span class="form-hidden">'.$this->Form->input($counter.'.item_image',array('value'=>$item['ItemImage'])).'</span></div>';
 		print '<div class="ins-get-box-text">';
 		print  $this->Form->input($counter.'.item_name', array('value' => $item['Itemname'], 'div' => 'ins-get-form-text')).'<br />';
@@ -35,7 +45,13 @@ else {
 		print $this->Form->input($counter.'.recipeID', array('type'=>'hidden', 'value' => $recipeID, 'id' => $counter.'.recipeID', 'div' => 'ins-get-form-text'));
 		print $this->Form->input($counter.'.itemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => $counter.'.Items', 'div' => 'ins-get-form-text'));
 		print '<br/></div>';
-		print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked').'</div></div>';
+		// disable checkbox if product in db
+		if (in_array($item['Itemname'], $results)) {
+			print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked', array('disabled' => true)).'</div></div>';
+		}
+		else {
+			print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked').'</div></div>';
+		}
 		print '<hr class="ins-add-hr"/>';
 		$counter++;		
 	}
@@ -45,7 +61,13 @@ else {
 	}
 	// only 1 item result
 	else {
-		print '<div class="ins-get-outer">';
+		// grayout if product in db
+		if (in_array($in['Product_Commercial']['Itemname'], $results)) {
+			print '<div class="ins-get-outer grayout">';
+		}
+		else {
+			print '<div class="ins-get-outer">';
+		}
 		print '<div class="ins-get-box-thumb"><img src="'.$in['Product_Commercial']['ItemImage'].'" /><span class="form-hidden">'.$this->Form->input($counter.'.item_image',array('value'=>$in['Product_Commercial']['ItemImage'])).'</span></div>';
 		print '<div class="ins-get-box-text">';
 		print  $this->Form->input($counter.'.item_name', array('value' => $in['Product_Commercial']['Itemname'], 'div' => 'ins-get-form-text')).'<br />';
@@ -57,14 +79,18 @@ else {
 		print $this->Form->input($counter.'.recipeID', array('type'=>'hidden', 'value' => $recipeID, 'id' => 'RecipeID', 'div' => 'ins-get-form-text'));
 		print $this->Form->input($counter.'.itemsString', array('type'=>'hidden', 'value' => $itemsString, 'id' => $counter.'.Items', 'div' => 'ins-get-form-text'));
 		print '<br/></div>';
-		print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked').'</div></div>';
+		// disable checkbox if product in db
+		if (in_array($in['Product_Commercial']['Itemname'], $results)) {
+			print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked', array('disabled' => true)).'</div></div>';
+		}
+		else {
+			print '<div class="ins-get-checkbox">'.$this->Form->checkbox($counter.'.item_checked').'</div></div>';
+		}
 		print '<hr class="ins-add-hr"/>';
 	?>
 	</table>	
 	<?php
 	} // end else
-	//print $this->Form->input('ingredient', array('type'=>'hidden', 'value' => $ingredient, 'id' => 'ingredientID', 'div' => 'ins-get-form-text'));
-	//print $this->Form->input('recipeID', array('type'=>'hidden', 'value' => $recipeID, 'id' => 'recipeID', 'div' => 'ins-get-form-text'));
 	print $this->Form->end('Store Products'); 
 } // end else 
 ?>

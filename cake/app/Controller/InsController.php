@@ -50,28 +50,51 @@ class InsController extends AppController {
 	 }
 	 
 	 public function search() {
-	 	$item = $this->request->data;
+	 	$search = $this->request->data;
+	 	$this->loadModel('Products');
 	 	
-	 	if (!isset($item['Ins']['ProductSearch']) || empty($item['Ins']['ProductSearch'])) {
-	 		$in = $this->Ins->getItem($item['Ins']['Ingredient']);
-	 	}
-	 	else {
-	 		$in = $this->Ins->getItem($item['Ins']['ProductSearch']);
-	 	}
+	 	// if no search params are entered in text field, set 
+	 	// if (!isset($item['Ins']['ProductSearch']) || empty($item['Ins']['ProductSearch'])) {
+// 	 		$in = $this->Ins->getItem($item['Ins']['Ingredient']);
+// 	 	}
+// 	 	else {
+// 	 		$in = $this->Ins->getItem($item['Ins']['ProductSearch']);
+// 	 	}
+	 	
+	 	$in = $this->Ins->getItem($search['Ins']['ProductSearch']);
+	 	$results = array();
+	 	
+	 	// check if products for ingredient are in db
+	 	if ($this->Ins->hasAny(array('in_name' => $search['Ins']['Ingredient']))) {
+			$in_id = $this->Ins->field('in_id', array('in_name' => $search['Ins']['Ingredient']));
+	 		// if only one result from Supermarket API
+	 		if (array_key_exists('Itemname', $in['Product_Commercial'])) {
+	 			if ($this->Products->hasAny(array('name' => $in['Product_Commercial']['Itemname'], 'in_id' => $in_id))) {
+						$results[] = $in['Product_Commercial']['Itemname'];
+					}
+		 	}
+		 	// if multiple results from Supermarket API
+		 	else {
+				foreach($in['Product_Commercial'] as $item) {
+					if ($this->Products->hasAny(array('name' => $item['Itemname'], 'in_id' => $in_id))) {
+						$results[] = $item['Itemname'];
+					}
+				}
+			}
+		}
+	 	$this->set('results', $results);
 	 	
 	 	if (isset($in['Product_Commercial']['Itemname']) && $in['Product_Commercial']['Itemname'] == "NOITEM") {
-	 		$this->set('productSearch', $item['Ins']['ProductSearch']);
 	 		$this->set('in', '');
 	 	}
 		else {
-	 		$this->set('productSearch', $item['Ins']['ProductSearch']);
 			$this->set('in', $in);
 		}
 	 	
-	 	$this->set('item', $item);
-	 	$this->set('ingredient', $item['Ins']['Ingredient']);
-	 	$this->set('recipeID', $item['Ins']['RecipeID']);
-	 	$this->set('itemsString', $item['Ins']['ItemsString']);
+	 	$this->set('productSearch', $search['Ins']['ProductSearch']);
+	 	$this->set('ingredient', $search['Ins']['Ingredient']);
+	 	$this->set('recipeID', $search['Ins']['RecipeID']);
+	 	$this->set('itemsString', $search['Ins']['ItemsString']);
 	}
 	
 }

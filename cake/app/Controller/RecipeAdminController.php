@@ -19,6 +19,7 @@ class RecipeAdminController extends AppController {
     	$recipe = $this->Recipe->getRecipesByCuisine($cuisine);
 		$this->set('recipe', $recipe);
 		
+		// flag recipes already in db
 		$inDb = array();
 		foreach ($recipe['matches'] as $r) {
 			if ($this->Recipe->hasAny(array('rec_name' => $r['id']))) {
@@ -36,6 +37,7 @@ class RecipeAdminController extends AppController {
 		$recipe = $this->Recipe->getRecipesByCourse($courses);
 		$this->set('recipe', $recipe);
 		
+		// flag recipes already in db
 		$inDb = array();
 		foreach ($recipe['matches'] as $r) {
 			if ($this->Recipe->hasAny(array('rec_name' => $r['id']))) {
@@ -77,7 +79,7 @@ class RecipeAdminController extends AppController {
 		$recipe = $this->Recipe->getById($id);
 		$this->set('recipe', $recipe);
 		
-		// displaying recipe submit button
+		// for disabling recipe submit button
 		$display = true;
 		if (in_array(0, $array, true) || $this->Recipe->hasAny(array('rec_name' => $recipe['id']))) {
 			$display = false;
@@ -100,7 +102,7 @@ class RecipeAdminController extends AppController {
 		if ($this->Ins->hasAny(array('in_name' => $itemInfo['Ins']['0']['ingredient']))) {
 			$in_id = $this->Ins->field('in_id', array('in_name' => $itemInfo['Ins']['0']['ingredient']));
 			foreach($itemInfo['Ins'] as $i) {
-				if ($i['item_checked']) {
+				if (array_key_exists('item_checked', $i) && $i['item_checked']) {
 					$data[] = array(
 						'name' => $i['item_name'], 
 						'price' => $i['pricing'],
@@ -184,7 +186,6 @@ class RecipeAdminController extends AppController {
 			}
 			$recipeInfo['Recipe']['RecCourses'] = $reccoursesInfo;
 		}
-		//$this->set('couInfo', $coursesInfo);
 		// end Courses
 		
 		// start Cuisines
@@ -200,7 +201,6 @@ class RecipeAdminController extends AppController {
 			}
 			$recipeInfo['Recipe']['RecCuisines'] = $reccuisinesInfo;
 		}
-		//$this->set('cuisInfo', $cuisinesInfo);
 		// end Cuisines
 			
 		// start Ins
@@ -209,7 +209,6 @@ class RecipeAdminController extends AppController {
 			$insInfo[] = $this->Ins->query("SELECT * FROM ins WHERE in_name ='" .$in['in_name']. "' LIMIT 1;");
 		}
 		$this->set('insInfo', $insInfo);
- 		//$recinsInfo = array();
 		foreach($insInfo as $i) {
 			$recinsInfo['in_id'] = $i['0']['ins']['in_id'];
 		}
