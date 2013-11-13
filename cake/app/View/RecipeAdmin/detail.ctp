@@ -138,7 +138,7 @@ if(!empty($recipe) && isset($recipe)) {
 							<?php 
 							$numProduct++;
 							} // end for
-						}
+						} // end if
 						// display search button
 						echo "<li class=\"search\">";
 						echo "<span class=\"bold\">Searching for: ".$key. "</span>";

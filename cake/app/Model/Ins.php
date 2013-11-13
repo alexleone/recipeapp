@@ -5,7 +5,7 @@ App::uses('Ins', 'Model');
 class Ins extends AppModel {
 
 	public $name = 'Ins';
-	
+	public $useTable = 'ins';
 	public $primaryKey = 'in_id';
 	
 	public $hasMany = array(
@@ -28,24 +28,7 @@ class Ins extends AppModel {
     		'with' => 'RecIns'
     ));
     
-  //   public $hasAndBelongsToMany = array(
-//     'Recipe' => array(
-//         'className' => 'Recipe',
-//         'joinTable' => 'recins',
-//         //'foreignKey' => 'in_id',
-//         //'associationForeignKey' => 'rec_id',
-//         'unique' => 'keepExisting',
-//         'with' => 'RecIns',
-//         'conditions' => '',
-//         'fields' => '',
-//         'order' => '',
-//         'limit' => '',
-//         'offset' => '',
-//         'finderQuery' => '',
-//         'deleteQuery' => '',
-//         'insertQuery' => ''
-//     ));
-	
+    	
 	public function getItem($item){
 		
 		if ($item == "we got items") {

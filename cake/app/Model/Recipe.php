@@ -6,33 +6,14 @@ App::uses('Recipe', 'Model');
 class Recipe extends AppModel {
  	
  	public $name = 'Recipe';
- 	
  	public $primaryKey = 'rec_id';
 	
-	// public $hasAndBelongsToMany = array(
-//     'Ins' => array(
-//         'className' => 'Ins',
-//         'joinTable' => 'recins',
-//         //'foreignKey' => 'rec_id',
-//         //'associationForeignKey' => 'in_id',
-//         'unique' => 'keepExisting',
-//         'with' => 'RecIns',
-//         'conditions' => '',
-//         'fields' => '',
-//         'order' => '',
-//         'limit' => '',
-//         'offset' => '',
-//         'finderQuery' => '',
-//         'deleteQuery' => '',
-//         'insertQuery' => ''
-//     ));
-    
     public $hasMany = array(
     'RecIns' => array(
         'className' => 'RecIns',
-       'joinTable' => 'Ins',
-        'foreignKey' => 'in_id',
-        'associationForeignKey' => 'rec_id',
+		//'joinTable' => 'Ins',
+        'foreignKey' => 'rec_id',
+        'associationForeignKey' => 'in_id',
         'unique' => 'keepExisting',
         'with' => 'RecIns',
         'conditions' => '',
@@ -44,10 +25,10 @@ class Recipe extends AppModel {
         'deleteQuery' => '',
         'insertQuery' => ''
     ),
-    'Courses' => array(
-        'className' => 'Courses',
-        'joinTable' => 'reccourses',
-        'foreignKey' => 'cou_id',
+    'RecCourses' => array(
+        'className' => 'RecCourses',
+        //'joinTable' => 'reccourses',
+        'foreignKey' => 'rec_id',
         'associationForeignKey' => 'cou_id',
         'unique' => 'keepExisting',
         'with' => 'RecCourses',
@@ -59,10 +40,10 @@ class Recipe extends AppModel {
         'finderQuery' => '',
         'deleteQuery' => '',
         'insertQuery' => ''),
-    'Cuisines' => array(
-        'className' => 'Cuisines',
-        'joinTable' => 'reccuisines',
-        'foreignKey' => 'cuis_id',
+    'RecCuisines' => array(
+        'className' => 'RecCuisines',
+        //'joinTable' => 'reccuisines',
+        'foreignKey' => 'rec_id',
         'associationForeignKey' => 'cuis_id',
         'unique' => 'keepExisting',
         'with' => 'RecCuisines',

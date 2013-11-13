@@ -47,19 +47,26 @@
 	<h5>Servings: <?php echo $recipe['numberOfServings']; ?></h5>
 	<h5>Total Time: <?php echo $recipe['totalTime']; ?></h5>
 
-		<?php if (array_key_exists('cuisine', $recipe['attributes'])) {
+		<?php 
+		// check if recipe has cuisine types	
+		if (array_key_exists('cuisine', $recipe['attributes'])) {
 			echo "<h5>Cuisine: ";
+			$cuisineString = "";
 			foreach($recipe['attributes']['cuisine'] as $cuisine) { 
-				echo $cuisine."<br />";
+				$cuisineString .= $cuisine. ", ";
 			} 
-			echo "</h5>";
+			$cuisineString = substr($cuisineString, 0, -2); // removes ending ", "
+			echo $cuisineString."</h5>";
 		}
+		// check if recipe has course types
 		if (array_key_exists('course', $recipe['attributes'])) { 
 			echo "<h5>Course: ";
+			$courseString = "";
 			foreach($recipe['attributes']['course'] as $course) { 
-				echo $course."<br />";
+				$courseString .= $course. ", ";
 			}
-			echo "</h5>";
+			$courseString = substr($courseString, 0, -2); // removes ending ", "
+			echo $courseString."</h5>";
 		}?>
 	
 	<h5>Directions at: <a id="Logo" href="<?php echo $recipe['source']['sourceRecipeUrl']; ?>" target="_blank"> <?php echo $recipe['source']['sourceDisplayName']; ?></a></h5>

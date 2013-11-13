@@ -12,9 +12,9 @@ class Courses extends AppModel {
 	public $hasMany = array(
 	'RecCourses' => array(
         'className' => 'RecCourses',
-        'joinTable' => 'reccourses',
+        //'joinTable' => 'reccourses',
         'foreignKey' => 'cou_id',
-        'associationForeignKey' => 'rec_id',
+        //'associationForeignKey' => 'rec_id',
         'unique' => 'keepExisting',
         'with' => 'RecCourses',
         'conditions' => '',
@@ -25,27 +25,7 @@ class Courses extends AppModel {
         'finderQuery' => '',
         'deleteQuery' => '',
         'insertQuery' => ''
-    ));
+    ));   
     
-    // public $hasAndBelongsToMany = array(
-//     'RecIns' => array(
-//         'className' => 'RecIns',
-//         'joinTable' => 'recins',
-//         'foreignKey' => 'in_id',
-//         'associationForeignKey' => 'rec_id',
-//         'unique' => 'keepExisting',
-//         'with' => 'RecIns',
-//         'conditions' => '',
-//         'fields' => '',
-//         'order' => '',
-//         'limit' => '',
-//         'offset' => '',
-//         'finderQuery' => '',
-//         'deleteQuery' => '',
-//         'insertQuery' => ''
-//     ));
-	
-	
-
 }
 ?>

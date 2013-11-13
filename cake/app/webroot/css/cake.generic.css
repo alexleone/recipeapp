@@ -880,6 +880,7 @@ ul#ingredientList ul.showingProducts li.search {
 }
 
 .grayout {
+	-webkit-filter: grayscale();
 	opacity: 0.4;
     filter: alpha(opacity = 40);
 }

@@ -210,7 +210,7 @@ class RecipeAdminController extends AppController {
 		}
 		$this->set('insInfo', $insInfo);
 		foreach($insInfo as $i) {
-			$recinsInfo['in_id'] = $i['0']['ins']['in_id'];
+			$recinsInfo[]['in_id'] = $i['0']['ins']['in_id'];
 		}
 		$recipeInfo['Recipe']['RecIns'] = $recinsInfo;
 		// end Ins
