@@ -76,37 +76,61 @@
 		<div class="left"> <a onclick="collapseAll()" href="javascript:void(0);" class="paddingSidesM">Collapse All</a>)</div>
 	</div>
 <!-- Ingredients -->
+	<?php
+	// order ingredient key words with ingredient detailed lines
+	$inList = array();
+	$n = 0;
+	foreach ($recipe['ingredientLines'] as $ingredient) { 
+		foreach ($products as $key => $value) {
+			if (stristr($ingredient, $key) !== FALSE && (!isset($inList[$n]) || strlen($inList[$n]) < strlen($key))) {
+				$inList[$n] = $key;
+			}
+		}
+		$n++;
+	}
+	?>
 	<ul id="ingredientList">
 		<?php  
-		$num = 0;
  		$numProduct = 0;
-		foreach($recipe['ingredientLines'] as $ingredient) { ?>
-		<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $num; ?>')"><?php echo $ingredient; ?></a></li>
-<!-- Products -->
-			<ul id="productList<?php echo $num; ?>" class="hidingProducts">
-			<?php for ($n = 0; $n <= 5; $n++) { ?>
-				<li>
-					<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="" alt="pic" class="productImg" />
-					Product name<br />
-					Price<br />
-					<?php echo $this->Form->create(array('class' => 'productForm')); ?>
-					<?php echo $this->Form->input('Qty:', array(
-						'options' => array(2, 3, 4, 5, 6, 7, 8, 9, 10),
-    					'empty' => '1'
-    				)); ?>
-					<?php echo $this->Form->end('Add'); ?>
-					<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
-						<div class="desWrap">Description:  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-					</div>
-				</li>
-				<?php 
-				$numProduct++;
-			}?>
-			</ul>
-<!-- end Products -->
-		<?php 
-		$num++;
-		} ?>
+ 		// display ingredient and product info
+		for ($i=0; $i<count($products); $i++) {
+			foreach ($products as $key => $value) {
+				if (isset($inList[$i]) && $key == $inList[$i]) {
+				?>
+					<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $i; ?>')"><?php echo $recipe['ingredientLines'][$i]; ?></a></li>
+					<!-- Products -->
+					<ul id="productList<?php echo $i; ?>" class="hidingProducts">
+						<?php
+						// display products from db
+						if ($value !== 0) {
+							for ($j=0; !empty($value[$j]); $j++) {
+								echo "<li id=\"product" .$numProduct. "\">";
+								?>
+									<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="<?php echo "data:image/jpeg;base64," . base64_encode($value[$j]['products']['image']); ?>" alt="pic" class="productImg" />
+									<?php echo $value[$j]['products']['name']; ?><br />
+									$<?php echo $value[$j]['products']['price']; ?><br />
+									<!-- add form -->
+									<?php echo $this->Form->create(array('class' => 'productForm', 'id' => 'productForm'.$numProduct)); ?>
+									<?php echo $this->Form->input('Qty:', array(
+										'options' => array(2, 3, 4, 5, 6, 7, 8, 9, 10),
+    									'empty' => '1'
+    								)); ?>
+									<?php echo $this->Form->end('Add'); ?>
+									<!-- end add form -->
+									<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
+										<div class="desWrap"><?php echo $value[$j]['products']['description']; ?></div>
+									</div>
+								</li>
+							<?php 
+							$numProduct++;
+							} // end for
+						} // end if
+					echo "</ul>";
+					echo "<!-- end Products -->";
+				} // end if
+			} // end foreach
+		} // end for
+		?>
 	</ul>
 <!-- end Ingredients -->
  

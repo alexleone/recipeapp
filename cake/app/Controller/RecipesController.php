@@ -9,30 +9,60 @@ class RecipesController extends AppController {
     public $uses = 'Recipe';
     //public $components = array('Session');
 
-	public function index() {
-    	//get the data from the json file
-		//$str_file_info = file_get_contents("recipes.json");
-		//decode json into array of objects
-		$object_array_file_info = json_decode('{"recipes": [
-			{ "recipeName":"Veggie Fried Rice" , "id":"Veggie-Fried-Rice-Naturally-Ella-46312", "rating":"5"}, 
-			{ "recipeName":"Ranch Noodles" , "id":"Ranch-Noodles-My-Recipes", "rating":"4" }, 
-			{ "recipeName":"Pesto Pasta with Chicken" , "id":"Pesto-Pasta-With-Chicken-Allrecipes", "rating":"3" },
-			{ "recipeName":"Garlic Butter Pasta with Spinach and Parmesan" , "id":"Garlic-butter-pasta-with-spinach-and-parmesan-305618", "rating":"4" },
-			{ "recipeName":"Easy Penne Pasta with Zucchini and Basil Pesto" , "id":"Easy-penne-pasta-with-zucchini-and-basil-pesto-309343", "rating":"3" },
-			{ "recipeName":"Saffron Rice" , "id":"Saffron-Rice-The-Shiksa-Blog-46555", "rating":"3" },
-			{ "recipeName":"Chickpea Couscous" , "id":"Chickpea-Couscous-Martha-Stewart", "rating":"4"},
-			{ "recipeName":"Cherry Tomato Couscous" , "id":"Cherry-tomato-couscous-308828", "rating":"5" }
-			]
-		}');
-		//just get the array of recipes 
-		$arry_of_objects_recipes = $object_array_file_info->recipes;
-		//$recipes = "";
-		$i=0;
-		//loop through the array of objects to find data in each
-		foreach($arry_of_objects_recipes as $recipe) {
-			$id = $recipe->id;
-			$this->set('recipe'.$i++, $this->Recipe->getById($id));
+	public function index() {		
+		$data = $this->request->data;
+		$this->set('data', $data);
+		// check type value
+		if ($data && array_key_exists('cuisine', $data['Recipe'])) {
+			$type = $data['Recipe']['cuisine'];
+			$type = str_replace('%2B', ' ', $type);
 		}
+		elseif($data && array_key_exists('course', $data['Recipe'])) {
+			$type = $data['Recipe']['course'];
+			$type = str_replace('%2B', ' ', $type);
+		}
+		else {
+			$type = false;
+		}
+		
+		$this->loadModel('Cuisines');
+		$this->loadModel('Courses');
+		$this->loadModel('RecCuisines');
+		$this->loadModel('RecCourses');
+		$this->loadModel('Recipes');
+		
+		// find recipes with course/cuisine type
+		$recipes = array();
+		$results = array();
+		if ($type && $this->Cuisines->hasAny(array('type' => $type))){
+			$cuis_id = $this->Cuisines->field('cuis_id', array('type' => $type));
+			$rec_ids = $this->RecCuisines->query('SELECT rec_id FROM reccuisines WHERE cuis_id ='. $cuis_id. ';');
+			$this->set('rec_ids', $rec_ids);
+			foreach($rec_ids as $rec_id) {
+				$recipes[] = $this->Recipes->find('first', array('conditions' => array('Recipes.rec_id' => $rec_id)));
+			}
+		}
+		elseif ($type && $this->Courses->hasAny(array('type' => $type))) {
+			$cou_id = $this->Courses->field('cou_id', array('type' => $type));
+			$rec_ids = $this->RecCourses->query('SELECT rec_id FROM reccourses WHERE cou_id ='. $cou_id. ';');
+			$this->set('rec_ids', $rec_ids);
+			foreach($rec_ids as $rec_id) {
+				$recipes[] = $this->Recipes->find('first', array('conditions' => array('Recipes.rec_id' => $rec_id['reccourses']['rec_id'])));
+			}
+		}
+		else {
+		 	$recipes = false;
+		}
+		
+		// call yummly by recipe ID
+		if ($recipes != false) {
+			foreach ($recipes as $recipe) {
+				$results[] = $this->Recipe->getById($recipe['Recipes']['rec_name']);
+			}
+		}
+		
+		$this->set('recipes', $recipes);
+		$this->set('results', $results);
     }
 	
 }

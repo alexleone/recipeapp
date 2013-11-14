@@ -63,11 +63,11 @@ function getRecipesByCourse(course){
 		<option value="Appetizers">Appetizers</option>
 		<option value="Salads">Salads</option>
 		<option value="Breads">Breads</option>
-		<option value="Breakfast%2Band%2BSoups">Breakfast and Soups</option>
+		<option value="Soups">Soups</option>
 		<option value="Lunch%2Band%2BSnacks">Lunch and Snacks</option>
 		<option value="Beverages">Beverages</option>
 		<option value="Condiments%2Band%2BSauces">Condiments and Sauces</option>
-		<option value="Cocktail">Cocktail</option>
+		<option value="Cocktails">Cocktails</option>
 	</select>
 	</form>
 </div>
