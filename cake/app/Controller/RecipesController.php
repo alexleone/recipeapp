@@ -39,7 +39,7 @@ class RecipesController extends AppController {
 			$rec_ids = $this->RecCuisines->query('SELECT rec_id FROM reccuisines WHERE cuis_id ='. $cuis_id. ';');
 			$this->set('rec_ids', $rec_ids);
 			foreach($rec_ids as $rec_id) {
-				$recipes[] = $this->Recipes->find('first', array('conditions' => array('Recipes.rec_id' => $rec_id)));
+				$recipes[] = $this->Recipes->find('first', array('conditions' => array('Recipes.rec_id' => $rec_id['reccuisines']['rec_id'])));
 			}
 		}
 		elseif ($type && $this->Courses->hasAny(array('type' => $type))) {
