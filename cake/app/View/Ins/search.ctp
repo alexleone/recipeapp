@@ -1,6 +1,6 @@
 <?php 
 // search form
-echo "<h2>Searching for <span class=\"bold\">".$ingredient. "</span></h2>";
+echo "<h2>Ingredient: <span class=\"bold\">".$ingredient. "</span></h2>";
 echo $this->Form->create('Ins', array('action' => 'search', 'type' => 'post'));
 print $this->Form->input('ProductSearch', array('value' => $productSearch, 'label' => false, 'div' => 'ins-get-form-text'));
 print $this->Form->input('Ingredient', array('type'=>'hidden', 'value' => $ingredient, 'div' => 'ins-get-form-text'));

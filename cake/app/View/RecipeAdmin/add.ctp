@@ -30,5 +30,6 @@
 		echo "</p>";
 	}
 	
-	echo "<a href=\"../RecipeAdmin\">Search for more Recipes</a>";
+	echo $this->Form->create(null, array('url' => array('controller' => 'RecipeAdmin', 'action' => 'index')));
+	echo $this->Form->end('Search for more Recipes');
 ?>

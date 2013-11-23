@@ -13,8 +13,8 @@ class RecIns extends AppModel {
     'Recipe' => array(
         'className' => 'Recipe',
         'joinTable' => 'recins',
-        'foreignKey' => 'in_id',
-        'associationForeignKey' => 'rec_id',
+        'foreignKey' => 'rec_id',
+        'associationForeignKey' => 'in_id',
         'unique' => 'keepExisting',
         'conditions' => '',
         'fields' => '',
@@ -28,8 +28,8 @@ class RecIns extends AppModel {
     'Ins' => array(
         'className' => 'Ins',
         'joinTable' => 'recins',
-        'foreignKey' => 'rec_id',
-		'associationForeignKey' => 'in_id',
+        'foreignKey' => 'in_id',
+		'associationForeignKey' => 'rec_id',
 		'unique' => 'keepExisting',
         'conditions' => '',
         'fields' => '',

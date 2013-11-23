@@ -12,11 +12,13 @@ class RecipeAdminController extends AppController {
     public $helpers = array('Html', 'Form', 'Js'=>array("Jquery")); 
     
 	public function index() {
-		
     }
 
-    public function cuisines($cuisine) {
-    	$recipe = $this->Recipe->getRecipesByCuisine($cuisine);
+    public function cuisines() {
+    	$cuisine = $this->request->data;
+    	$cuis = ucwords(str_replace('+', ' ', $cuisine['Recipe']['cuisine']));
+		$this->set('cuisine', $cuis);
+    	$recipe = $this->Recipe->getRecipesByCuisine($cuisine['Recipe']['cuisine']);
 		$this->set('recipe', $recipe);
 		
 		// flag recipes already in db
@@ -33,8 +35,11 @@ class RecipeAdminController extends AppController {
 		$this->set('inDb', $inDb);
     }
     
-    public function courses($courses) {
-		$recipe = $this->Recipe->getRecipesByCourse($courses);
+    public function courses() {
+    	$course = $this->request->data;
+    	$string = ucwords(str_replace('+', ' ', $course['Recipe']['course']));
+		$this->set('course', $string);
+		$recipe = $this->Recipe->getRecipesByCourse($course['Recipe']['course']);
 		$this->set('recipe', $recipe);
 		
 		// flag recipes already in db

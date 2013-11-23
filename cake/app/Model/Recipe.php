@@ -184,7 +184,7 @@ class Recipe extends AppModel {
 		
 		// Building string for GET request
 		$requeststr = 'http://api.yummly.com/v1/api/recipes?requirePictures=true&_app_id='.$appid.'&_app_key='.$appkey.'&allowedCuisine[]=cuisine^cuisine-'.$cuisine.'&maxResult=140';
-		Debugger::dump($requeststr);
+		
 		$output =  $this->getDataFromYummly($requeststr);
 	
 		return $output;

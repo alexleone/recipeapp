@@ -1,77 +1,54 @@
-<script>
-function getRecipesByCuisine(cuisine){
-	$.ajax({
-		url: '/recipeapp/cake/RecipeAdmin/cuisines/'+cuisine,
-		cache: false,
-		type: 'GET',
-		dataType: 'HTML',
-		success: function (data) {
-			$('#content').html(data);
-		}
-	});
-}
-function getRecipesByCourse(course){
-	$.ajax({
-		url: '/recipeapp/cake/RecipeAdmin/courses/'+course,
-		cache: false,
-		type: 'GET',
-		dataType: 'HTML',
-		success: function (data) {
-			$('#content').html(data);
-		}
-	});
-}
-</script>
-<div id="contoller">
-	<form>
-	Cuisine:
-	<select onchange="var cusine = this.options[this.selectedIndex].value; getRecipesByCuisine(cusine)">
-		<option>choose one</option>
-		<option value="american">American</option>
-		<option value="italian">Italian</option>
-		<option value="asian">Asian</option>
-		<option value="mexican">Mexican</option>
-		<option value="southern">Southern & Soul Food</option>
-		<option value="french">French</option>
-		<option value="southwestern">Southwestern</option>
-		<option value="barbecue">Barbecue</option>
-		<option value="indian">Indian</option>
-		<option value="chinese">Chinese</option>
-		<option value="cajun"> Cajun & Creole</option>
-		<option value="english">English</option>
-		<option value="mediterranean">Mediterranean</option>
-		<option value="greek">Greek</option>
-		<option value="spanish">Spanish</option>
-		<option value="german">German</option>
-		<option value="thai">Thai</option>
-		<option value="moroccan">Moroccan</option>
-		<option value="irish"> Irish</option>
-		<option value="japanese">Japanese</option>
-		<option value="cuban">Cuban</option>
-		<option value="hawaiian">Hawaiian</option>
-		<option value="swedish">Swedish</option>
-		<option value="hungarian">Hungarian</option>
-		<option value="portugese">Portugese</option>
-	</select>
-	Courses:
-	<select onchange="var course = this.options[this.selectedIndex].value; getRecipesByCourse(course)">
-		<option>choose one</option>
-		<option value="Main%2BDishes">Main Dishes</option>
-		<option value="Desserts">Desserts</option>
-		<option value="Side%2BDishes">Side Dishes</option>
-		<option value="Lunch%2Band%2BSnacks">Lunch and Snacks</option>
-		<option value="Appetizers">Appetizers</option>
-		<option value="Salads">Salads</option>
-		<option value="Breads">Breads</option>
-		<option value="Soups">Soups</option>
-		<option value="Lunch%2Band%2BSnacks">Lunch and Snacks</option>
-		<option value="Beverages">Beverages</option>
-		<option value="Condiments%2Band%2BSauces">Condiments and Sauces</option>
-		<option value="Cocktails">Cocktails</option>
-	</select>
-	</form>
-</div>
-<div id="content">
+<h2>Search Recipes by</h2>
 
+<?php
+$cuisine = array(
+	'american' => 'American', 
+	'italian' => 'Italian', 
+	'asian' => 'Asian',
+	'mexican' => 'Mexican',
+	'southern' => 'Southern & Soul Food',
+	'french' => 'French',
+	'southwestern' => 'Southwestern',
+	'barbecue' => 'Barbecue',
+	'indian' => 'Indian',
+	'chinese' => 'Chinese',
+	'cajun' => 'Cajun & Creole',
+	'english' => 'English',
+	'mediterranean' => 'Mediterranean',
+	'greek' => 'Greek',
+	'spanish' => 'Spanish',
+	'german' => 'German',
+	'thai' => 'Thai',
+	'moroccan' => 'Moroccan',
+	'irish' => 'Irish',
+	'japanese' => 'Japanese',
+	'cuban' => 'Cuban',
+	'hawaiian' => 'Hawaiian',
+	'swedish' => 'Swedish',
+	'hungarian' => 'Hungarian',
+	'portugese' => 'Portugese'
+	);
+	
+$course = array(
+	'Main+Dishes' => 'Main Dishes', 
+	'Desserts' => 'Desserts', 
+	'Side+Dishes' => 'Side Dishes',
+	'Lunch+and+Snacks' => 'Lunch and Snacks',
+	'Appetizers' => 'Appetizers',
+	'Salads' => 'Salads',
+	'Breads' => 'Breads',
+	'Soups' => 'Soups',
+	'Beverages' => 'Beverages',
+	'Condiments+and+Sauces' => 'Condiments and Sauces',
+	'Cocktails' => 'Cocktails'
+	);
+echo $this->Form->create(null, array('url' => array('controller' => 'RecipeAdmin', 'action' => 'cuisines')));
+echo $this->Form->input('cuisine', array('options' => $cuisine, 'empty' => '(choose one)', 'onchange' => 'this.form.submit()'));
+echo $this->Form->end();
 
-</div>
+echo "<h2>or</h2>";
+
+echo $this->Form->create(null, array('url' => array('controller' => 'RecipeAdmin', 'action' => 'courses')));
+echo $this->Form->input('course', array('options' => $course, 'empty' => '(choose one)', 'onchange' => 'this.form.submit()'));
+echo $this->Form->end();
+?>

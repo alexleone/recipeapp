@@ -1,4 +1,4 @@
-<h2>Recipes</h2>
+<h2>Recipes: <?php echo $course; ?></h2>
 <?php  
 	// display recipes
 	$num = 0;

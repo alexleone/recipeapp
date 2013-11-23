@@ -13,8 +13,8 @@ class RecCuisines extends AppModel {
     'Recipe' => array(
         'className' => 'Recipe',
         'joinTable' => 'reccuisines',
-        'foreignKey' => 'cuis_id',
-        'associationForeignKey' => 'rec_id',
+        'foreignKey' => 'rec_id',
+        'associationForeignKey' => 'cuis_id',
         'unique' => 'keepExisting',
         'conditions' => '',
         'fields' => '',
@@ -27,8 +27,8 @@ class RecCuisines extends AppModel {
     'Cuisines' => array(
         'className' => 'Cuisines',
         'joinTable' => 'reccuisines',
-        'foreignKey' => 'rec_id',
-        'associationForeignKey' => 'cuis_id',
+        'foreignKey' => 'cuis_id',
+        'associationForeignKey' => 'rec_id',
         'unique' => 'keepExisting',
         'conditions' => '',
         'fields' => '',

@@ -45,33 +45,33 @@ if(!empty($recipe) && isset($recipe)) {
 		
 <div class="recipeBox">
 	<img class="thumb" src="<?php echo $recipe['images']['0']['hostedLargeUrl']; ?>" alt="<?php echo $recipe['name']; ?>" />
-	<h3><?php echo $recipe['name']; ?></h3>
-	<h5>Servings: <?php echo $recipe['numberOfServings']; ?></h5>
-	<h5>Total Time: <?php echo $recipe['totalTime']; ?></h5>
+	<h2><?php echo $recipe['name']; ?></h2>
+	<p>Servings: <span class="bold"><?php echo $recipe['numberOfServings']; ?></span></p>
+	<p>Total Time: <span class="bold"><?php echo $recipe['totalTime']; ?></span></p>
 
 		<?php 
 		// check if recipe has cuisine types	
 		if (array_key_exists('cuisine', $recipe['attributes'])) {
-			echo "<h5>Cuisine: ";
+			echo "<p>Cuisine: ";
 			$cuisineString = "";
 			foreach($recipe['attributes']['cuisine'] as $cuisine) { 
-				$cuisineString .= $cuisine. ", ";
+				$cuisineString .= "<span class=\"bold\">" .$cuisine. "</span>, ";
 			} 
 			$cuisineString = substr($cuisineString, 0, -2); // removes ending ", "
-			echo $cuisineString."</h5>";
+			echo $cuisineString."</p>";
 		}
 		// check if recipe has course types
 		if (array_key_exists('course', $recipe['attributes'])) { 
-			echo "<h5>Course: ";
+			echo "<p>Course: ";
 			$courseString = "";
 			foreach($recipe['attributes']['course'] as $course) { 
-				$courseString .= $course. ", ";
+				$courseString .= "<span class=\"bold\">" .$course. "</span>, ";
 			}
 			$courseString = substr($courseString, 0, -2); // removes ending ", "
-			echo $courseString."</h5>";
+			echo $courseString."</p>";
 		}?>
 	
-	<h5>Directions at: <a id="Logo" href="<?php echo $recipe['source']['sourceRecipeUrl']; ?>" target="_blank"> <?php echo $recipe['source']['sourceDisplayName']; ?></a></h5>
+	<p>Directions at: <a id="Logo" href="<?php echo $recipe['source']['sourceRecipeUrl']; ?>" target="_blank"> <?php echo $recipe['source']['sourceDisplayName']; ?></a></p>
 	
 	<?php  
  	$numProduct = 0;
@@ -104,7 +104,7 @@ if(!empty($recipe) && isset($recipe)) {
 	else {
 	?>
 		
-		<h5 class="left">Ingredients:</h5>
+		<p class="left">Ingredients:</p>
 		<div class="left paddingSidesM">
 			<div class="left">(<a onclick="showAll()" href="javascript:void(0);" class="paddingSidesM">Show All</a>|</div>
 			<div class="left"> <a onclick="collapseAll()" href="javascript:void(0);" class="paddingSidesM">Collapse All</a>)</div>

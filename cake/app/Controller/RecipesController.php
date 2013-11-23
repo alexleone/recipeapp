@@ -9,22 +9,55 @@ class RecipesController extends AppController {
     public $uses = 'Recipe';
     //public $components = array('Session');
 
-	public function index() {		
-		$data = $this->request->data;
-		$this->set('data', $data);
-		// check type value
-		if ($data && array_key_exists('cuisine', $data['Recipe'])) {
-			$type = $data['Recipe']['cuisine'];
-			$type = str_replace('%2B', ' ', $type);
-		}
-		elseif($data && array_key_exists('course', $data['Recipe'])) {
-			$type = $data['Recipe']['course'];
-			$type = str_replace('%2B', ' ', $type);
-		}
-		else {
-			$type = false;
-		}
+	public function index() {				
+		$this->loadModel('Cuisines');
+		$this->loadModel('Courses');
+		$this->loadModel('RecCuisines');
+		$this->loadModel('RecCourses');
+		$this->loadModel('Recipes');
 		
+		// find cuisines with recipes from db
+		$cuisines = $this->RecCuisines->find('all', array('group' => array('Cuisines.type'), 'contain' => array('Cuisines'), 'order' => array('Cuisines.type ASC'), 'limit' => 3));
+		$this->set('cuisines', $cuisines);
+		
+		// find courses with recipes from db
+		$courses = $this->RecCourses->find('all', array('group' => array('Courses.type'), 'contain' => array('Courses'), 'order' => array('Courses.type ASC'), 'limit' => 3));
+		$this->set('courses', $courses);
+    }
+    
+    public function cuisines() {	
+    	$data = $this->request->data;
+		$this->set('data', $data);
+		$this->loadModel('Cuisines');
+		$this->loadModel('RecCuisines');
+		$this->loadModel('Recipe');
+		
+		// get all cuisines types that have associated recipes from db
+		$types = array();
+		$results = array();
+		$types = $this->RecCuisines->find('all', array('group' => array('Cuisines.type'), 'contain' => array('Cuisines'), 'order' => array('Cuisines.type ASC')));
+		
+		$this->set('types', $types);
+		$this->set('results', $results);
+    }
+    
+    public function Courses() {	
+    	$data = $this->request->data;
+		$this->set('data', $data);
+		$this->loadModel('Courses');
+		$this->loadModel('RecCourses');
+		$this->loadModel('Recipe');
+		
+		// get all course types from db
+		$types = array();
+		$results = array();
+		$types = $this->RecCourses->find('all', array('group' => array('Courses.type'), 'contain' => array('Courses'), 'order' => array('Courses.type ASC')));
+		
+		$this->set('types', $types);
+		$this->set('results', $results);
+    }
+	
+	public function results($type) {
 		$this->loadModel('Cuisines');
 		$this->loadModel('Courses');
 		$this->loadModel('RecCuisines');
