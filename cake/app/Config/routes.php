@@ -50,6 +50,10 @@
 	
 	Router::connect('/recipeadmin/detail/*', array('controller' => 'recipeadmin', 'action' => 'detail'));
 	
+	Router::connect('/checkout/*', array('controller' => 'checkout', 'action' => 'index'));
+	
+	
+	
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

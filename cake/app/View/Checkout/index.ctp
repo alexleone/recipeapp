@@ -1,7 +1,11 @@
-	<?php  
-		// display recipe
-		if(!empty($recipe) && isset($recipe)) {
-	?>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+<?php 
+// display recipe
+if(!empty($recipe) && isset($recipe)) {
+?>
 
 
 <script type="text/javascript">
@@ -40,6 +44,8 @@
 		}
 	}
 </script>
+
+<div id="notGood"></div>
 		
 <div class="recipeBox">
 	<img class="thumb" src="<?php echo $recipe['images']['0']['hostedLargeUrl']; ?>" alt="<?php echo $recipe['name']; ?>" />
@@ -70,31 +76,50 @@
 		}?>
 	
 	<p>Directions at: <a id="Logo" href="<?php echo $recipe['source']['sourceRecipeUrl']; ?>" target="_blank"> <?php echo $recipe['source']['sourceDisplayName']; ?></a></p>
-	<p class="left">Ingredients:</p>
-	<div class="left paddingSidesM">
-		<div class="left">(<a onclick="showAll()" href="javascript:void(0);" class="paddingSidesM">Show All</a>|</div>
-		<div class="left"> <a onclick="collapseAll()" href="javascript:void(0);" class="paddingSidesM">Collapse All</a>)</div>
-	</div>
-<!-- Ingredients -->
-	<?php
+	
+	<?php  
+ 	$numProduct = 0;
+		
 	// order ingredient key words with ingredient detailed lines
 	$inList = array();
 	$n = 0;
 	foreach ($recipe['ingredientLines'] as $ingredient) { 
-		foreach ($products as $key => $value) {
-			if (stristr($ingredient, $key) !== FALSE && (!isset($inList[$n]) || strlen($inList[$n]) < strlen($key))) {
-				$inList[$n] = $key;
+		foreach ($items as $item) {
+			if (stristr($ingredient, $item) !== FALSE && (!isset($inList[$n]) || strlen($inList[$n]) < strlen($item))) {
+				$inList[$n] = $item;
 			}
 		}
 		$n++;
 	}
-	?>
-	<ul id="ingredientList">
-		<?php  
- 		$numProduct = 0;
- 		// display ingredient and product info
-		for ($i=0; $i<count($products); $i++) {
-			foreach ($products as $key => $value) {
+			
+	// display alert if ingredients and ingredientlines from Yummly do not match up
+	// recipe not good to use, don't display ingredients
+	$missing = array_diff($items, $inList);
+	if (!empty($missing) || count($items) != count($recipe['ingredientLines'])) {
+		?>
+		<script>
+			var element = document.getElementById("notGood");
+			element.innerHTML = "Sorry You Some How You Have A Bad Recipe.";
+			element.className = "error-message";
+		</script>
+		<?php
+	}
+	// recipe good to use, display ingredients
+	else {
+	?>			
+		<p class="left">Ingredients:</p>
+		<div class="left paddingSidesM">
+			<div class="left">(<a onclick="showAll()" href="javascript:void(0);" class="paddingSidesM">Show All</a>|</div>
+			<div class="left"> <a onclick="collapseAll()" href="javascript:void(0);" class="paddingSidesM">Collapse All</a>)</div>
+		</div>
+		<!-- Ingredients -->
+		<ul id="ingredientList">
+	
+		<?php
+		// display ingredient and product info
+		for ($i=0; $i<count($items); $i++) {
+			foreach ($results as $key => $value) {
+				//for ($i=0; $i<count($inList); $i++) {
 				if (isset($inList[$i]) && $key == $inList[$i]) {
 				?>
 					<li class="clear"><a href="javascript:void(0);" onclick="showProducts('productList<?php echo $i; ?>')"><?php echo $recipe['ingredientLines'][$i]; ?></a></li>
@@ -104,35 +129,51 @@
 						// display products from db
 						if ($value !== 0) {
 							for ($j=0; !empty($value[$j]); $j++) {
-								echo "<li id=\"product" .$numProduct. "\">";
 								?>
+								<li id="itemCheckOutId<?php print $value[$j]['products']['prod_id']; ?>">
 									<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="<?php echo "data:image/jpeg;base64," . base64_encode($value[$j]['products']['image']); ?>" alt="pic" class="productImg" />
-									<?php echo $value[$j]['products']['name']; ?><br />
-									$<?php echo $value[$j]['products']['price']; ?><br />
-									<!-- add form -->
-									<?php echo $this->Form->create(array('class' => 'productForm', 'id' => 'productForm'.$numProduct)); ?>
-									<?php echo $this->Form->input('Qty:', array(
-										'options' => array(2, 3, 4, 5, 6, 7, 8, 9, 10),
-    									'empty' => '1'
-    								)); ?>
-									<?php echo $this->Form->end('Add'); ?>
-									<!-- end add form -->
+									<span><?php echo $value[$j]['products']['name']; ?></span>
+									<p>$<?php echo $value[$j]['products']['price']; ?></p>
 									<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
 										<div class="desWrap"><?php echo $value[$j]['products']['description']; ?></div>
+									</div>
+									<div>
+										<button onclick="addToCart(<?php print $value[$j]['products']['prod_id']; ?>, <?php echo $value[$j]['products']['price']; ?>)" >Add To Cart	</button>
+										<script>
+											function addToCart(prodId, price){
+												checkoutItemTotal += price;
+						
+												var itemDiv = $('#itemCheckOutId'+prodId);
+												itemDiv.addClass("cartItem");
+												itemDiv.find("div").remove();
+												itemDiv.find("img").addClass("cartItemImage");
+												itemDiv.find("img").removeAttr("onmouseover");
+												itemDiv.find("img").removeAttr("onmouseout");
+												itemDiv.find("span").addClass("cartItemName");
+												itemDiv.find("p").addClass("cartItemPrce");
+												itemDiv.append("<hr>");
+												$('#cartItems').append(itemDiv);
+												$('.total').html(checkoutItemTotal.toFixed(2));
+												$('#amountForPayPal').val(checkoutItemTotal.toFixed(2));
+											}
+										</script>
 									</div>
 								</li>
 							<?php 
 							$numProduct++;
 							} // end for
 						} // end if
+						
 					echo "</ul>";
 					echo "<!-- end Products -->";
 				} // end if
 			} // end foreach
-		} // end for
-		?>
-	</ul>
-<!-- end Ingredients -->
+		} // end for	
+		echo "</ul>";
+		echo "<!-- end Ingredients -->";
+	} // end else
+	?>
+
  
 <!-- Nutrition Facts -->
 	<?php  
@@ -282,13 +323,60 @@
 		</tr>
 	</table>
 <!-- end Nutrition Facts -->
+	<?php
+		// Add Recipe form
+		
+			
+	
+	?>
+<div style="width:250px;">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="ileone2@gmail.com">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="Grocery Products">
+<input type="hidden" name="button_subtype" value="services">
+<input id="amountForPayPal" type="hidden" name="amount" value="1.00">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax_rate" value="7.000">
+<input type="hidden" name="shipping" value="4.99">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 </div>
 
-
+</div>
 
 <?php 	
 	} // end if
 	else {
-		echo "No recipe chosen";
+		echo "You have arrived here from an unknown location. Please use the nvaigation links.";
 	}
+?>
+<script>
+var checkoutItemName = "";
+var checkoutItemTotal = 0;
+function checkOutConfirm(){
+	$("#cart").dialog();	
+}
+
+</script>
+<div id="cart" title="Confirm Your Order.">
+<h1>Cart</h1>
+<div id="total-holder">Total Cost: $<span class="total"></span></div>
+<div id="cartItems"></div>
+
+
+</div>
+
+
+<?php
+// Credential	API Signature
+// API Username		ileone2_api1.gmail.com
+// API Password	Y76CV4TT2T6FCHH3
+// Signature	Ai-lBsVToG2LmVQf-gU1QUfZJV34AslkwmFqxnMzpHtLEUD8PCwoX7nC
+// Signature	
+// Request Date	Nov 24, 2013 11:50:31 PST
 ?>

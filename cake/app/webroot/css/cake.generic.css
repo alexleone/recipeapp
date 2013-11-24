@@ -1097,3 +1097,39 @@ ul#ingredientList ul.showingProducts li.search {
 	width:100%;
 }
 /* End View/Ins/add.ctp */
+
+/*  View/Checkout/index.ctp */
+#cart{
+	float:right;
+	text-align: right;
+	width:400px;
+	height:100%;
+	overflow:auto;
+	margin:20px;
+}
+.cartItem{
+	float:right;
+	width:250px;
+	height:auto;
+	list-style: none;
+	margin-bottom:20px;
+	text-align: right;
+	display:block;
+	
+}
+.cartItemName{
+	display:block;
+}
+.cartItemImage{
+
+}
+.cartItemPrice{}
+.total{
+	font-weight: bold;
+
+}
+#total-holder{
+		margin-bottom:20px;
+}
+
+/*  END View/Checkout/index.ctp */
