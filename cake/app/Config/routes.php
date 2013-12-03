@@ -50,7 +50,7 @@
 	
 	Router::connect('/recipeadmin/detail/*', array('controller' => 'recipeadmin', 'action' => 'detail'));
 	
-	Router::connect('/checkout/*', array('controller' => 'checkout', 'action' => 'index'));
+	
 	
 	
 	

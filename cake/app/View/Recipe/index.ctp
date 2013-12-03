@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
 	<?php  
 		// display recipe
 		if(!empty($recipe) && isset($recipe)) {
@@ -104,21 +108,34 @@
 						// display products from db
 						if ($value !== 0) {
 							for ($j=0; !empty($value[$j]); $j++) {
-								echo "<li id=\"product" .$numProduct. "\">";
-								?>
+							?>
+								<li id="itemCheckOutId<?php print $value[$j]['products']['prod_id']; ?>">
 									<img onmouseover="showDes('inDescription<?php echo $numProduct; ?>')" onmouseout="hideDes('inDescription<?php echo $numProduct; ?>')" src="<?php echo "data:image/jpeg;base64," . base64_encode($value[$j]['products']['image']); ?>" alt="pic" class="productImg" />
-									<?php echo $value[$j]['products']['name']; ?><br />
-									$<?php echo $value[$j]['products']['price']; ?><br />
-									<!-- add form -->
-									<?php echo $this->Form->create(array('class' => 'productForm', 'id' => 'productForm'.$numProduct)); ?>
-									<?php echo $this->Form->input('Qty:', array(
-										'options' => array(2, 3, 4, 5, 6, 7, 8, 9, 10),
-    									'empty' => '1'
-    								)); ?>
-									<?php echo $this->Form->end('Add'); ?>
-									<!-- end add form -->
+									<span><?php echo $value[$j]['products']['name']; ?></span>
+									<p>$<?php echo $value[$j]['products']['price']; ?></p>
 									<div id="inDescription<?php echo $numProduct; ?>" class="hidingDescription">
 										<div class="desWrap"><?php echo $value[$j]['products']['description']; ?></div>
+									</div>
+									<div>
+										<button onclick="addToCart(<?php print $value[$j]['products']['prod_id']; ?>, <?php echo $value[$j]['products']['price']; ?>)" >Add To Cart	</button>
+										<script>
+											function addToCart(prodId, price){
+												checkoutItemTotal += price;
+						
+												var itemDiv = $('#itemCheckOutId'+prodId);
+												itemDiv.addClass("cartItem");
+												itemDiv.find("div").remove();
+												itemDiv.find("img").addClass("cartItemImage");
+												itemDiv.find("img").removeAttr("onmouseover");
+												itemDiv.find("img").removeAttr("onmouseout");
+												itemDiv.find("span").addClass("cartItemName");
+												itemDiv.find("p").addClass("cartItemPrce");
+												itemDiv.append("<hr>");
+												$('#cartItems').append(itemDiv);
+												$('.total').html(checkoutItemTotal.toFixed(2));
+												$('#amountForPayPal').val(checkoutItemTotal.toFixed(2));
+											}
+										</script>
 									</div>
 								</li>
 							<?php 
@@ -284,6 +301,24 @@
 <!-- end Nutrition Facts -->
 </div>
 
+<div style="width:250px;">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="ileone2@gmail.com">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="Grocery Products">
+<input type="hidden" name="button_subtype" value="services">
+<input id="amountForPayPal" type="hidden" name="amount" value="1.00">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax_rate" value="7.000">
+<input type="hidden" name="shipping" value="4.99">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+
 
 
 <?php 	
@@ -292,3 +327,18 @@
 		echo "No recipe chosen";
 	}
 ?>
+
+<script>
+var checkoutItemName = "";
+var checkoutItemTotal = 0;
+function checkOutConfirm(){
+	$("#cart").dialog();	
+}
+
+</script>
+<div id="cart" title="Confirm Your Order.">
+<h1>Cart</h1>
+<div id="total-holder">Total Cost: $<span class="total"></span></div>
+<div id="cartItems"></div>
+
+</div>

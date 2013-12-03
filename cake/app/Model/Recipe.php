@@ -117,7 +117,7 @@ class Recipe extends AppModel {
 			
 		// API credentials
 		//
-		$personsName="jenni";
+		$personsName="alex";
 		$appid = Recipe::getAppidByPerson($personsName);
 		$appkey = Recipe::getAppkeyByPerson($personsName);
 		
@@ -136,7 +136,7 @@ class Recipe extends AppModel {
 			
 		// API credentials
 		//
-		$personsName="jenni";
+		$personsName="alex";
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
@@ -159,7 +159,7 @@ class Recipe extends AppModel {
 			
 		// API credentials
 		//
-		$personsName="jenni";
+		$personsName="alex";
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		
@@ -178,7 +178,7 @@ class Recipe extends AppModel {
 		
 		// API credentials
 		//
-		$personsName="jenni";
+		$personsName="alex";
 		$appid =  $this->getAppidByPerson($personsName);
 		$appkey = $this->getAppkeyByPerson($personsName);
 		

@@ -1100,21 +1100,23 @@ ul#ingredientList ul.showingProducts li.search {
 
 /*  View/Checkout/index.ctp */
 #cart{
-	float:right;
+	position:absolute;
+	top:70px;
+	right:40px;
 	text-align: right;
-	width:400px;
-	height:100%;
+	width:410px;
+	height:1000px;
 	overflow:auto;
 	margin:20px;
 }
 .cartItem{
-	float:right;
-	width:250px;
-	height:auto;
+	display:inline-block;
+	width:150px;
+	height:100px;
 	list-style: none;
 	margin-bottom:20px;
 	text-align: right;
-	display:block;
+	border: 1px black thick;
 	
 }
 .cartItemName{
