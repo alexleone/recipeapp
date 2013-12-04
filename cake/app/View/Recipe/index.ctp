@@ -117,7 +117,8 @@
 										<div class="desWrap"><?php echo $value[$j]['products']['description']; ?></div>
 									</div>
 									<div>
-										<button onclick="addToCart(<?php print $value[$j]['products']['prod_id']; ?>, <?php echo $value[$j]['products']['price']; ?>)" >Add To Cart	</button>
+					
+										<a class="myButton" onclick="addToCart(<?php print $value[$j]['products']['prod_id']; ?>, <?php echo $value[$j]['products']['price']; ?>)" >Add To Cart	</a>
 										<script>
 											function addToCart(prodId, price){
 												checkoutItemTotal += price;
@@ -301,23 +302,6 @@
 <!-- end Nutrition Facts -->
 </div>
 
-<div style="width:250px;">
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="ileone2@gmail.com">
-<input type="hidden" name="lc" value="US">
-<input type="hidden" name="item_name" value="Grocery Products">
-<input type="hidden" name="button_subtype" value="services">
-<input id="amountForPayPal" type="hidden" name="amount" value="1.00">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="tax_rate" value="7.000">
-<input type="hidden" name="shipping" value="4.99">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-</div>
 
 
 
@@ -338,7 +322,25 @@ function checkOutConfirm(){
 </script>
 <div id="cart" title="Confirm Your Order.">
 <h1>Cart</h1>
-<div id="total-holder">Total Cost: $<span class="total"></span></div>
 <div id="cartItems"></div>
+<div id="total-holder">Total Cost: $<span class="total"></span></div>
+<div class="paypalbtn">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="ileone2@gmail.com">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="Grocery Products">
+<input type="hidden" name="button_subtype" value="services">
+<input id="amountForPayPal" type="hidden" name="amount" value="1.00">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax_rate" value="7.000">
+<input type="hidden" name="shipping" value="4.99">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
 
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 </div>
+</div>
+
+
